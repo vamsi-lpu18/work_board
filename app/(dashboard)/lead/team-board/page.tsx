@@ -20,11 +20,11 @@ export default async function TeamBoardPage() {
 
   if (!user?.team) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="space-y-6">
         <div className="text-center py-12">
           <div className="border-border rounded-lg p-8 max-w-md mx-auto">
             <h2 className="text-xl font-semibold text-foreground mb-2">No Team Assigned</h2>
-            <p className="text-primary">Please contact your administrator to assign you to a team.</p>
+            <p className="text-muted-foreground">Please contact your administrator to assign you to a team.</p>
           </div>
         </div>
       </div>
@@ -60,17 +60,17 @@ export default async function TeamBoardPage() {
   });
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="space-y-6">
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-3">
-          <div className="flex items-center gap-2 px-3 py-1.5 bg-primary text-primary-foreground rounded-full ">
+          <div className="flex items-center gap-2 px-3 py-1.5 bg-foreground text-background rounded-full ">
             <span className="text-sm font-semibold">Tech Lead</span>
           </div>
         </div>
-        <h2 className="text-2xl font-bold tracking-tight text-foreground">
+        <h2 className="text-2xl font-bold text-foreground tracking-tight">
           {user.team.name} - Task Board
         </h2>
-        <p className="text-primary mt-2">Manage and coordinate team tasks with intelligent tracking</p>
+        <p className="text-muted-foreground mt-2">Manage and coordinate team tasks with intelligent tracking</p>
       </div>
 
       <div className="border-border rounded-lg overflow-hidden hover:transition-colors">

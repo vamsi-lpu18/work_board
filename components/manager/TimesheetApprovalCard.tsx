@@ -92,7 +92,7 @@ export function TimesheetApprovalCard({ timesheet }: { timesheet: Timesheet }) {
               <div className="font-medium text-foreground">
                 {timesheet.user.firstName} {timesheet.user.lastName}
               </div>
-              <div className="mt-1 text-sm text-primary">
+              <div className="mt-1 text-sm text-muted-foreground">
                 Week of {new Date(timesheet.weekStart).toLocaleDateString()} -{" "}
                 {new Date(timesheet.weekEnd).toLocaleDateString()}
               </div>
@@ -101,7 +101,7 @@ export function TimesheetApprovalCard({ timesheet }: { timesheet: Timesheet }) {
               <div className="text-2xl font-semibold text-foreground">
                 {timesheet.totalHours}h
               </div>
-              <div className="text-sm text-primary">
+              <div className="text-sm text-muted-foreground">
                 {timesheet.entries.length} entries
               </div>
             </div>
@@ -109,7 +109,7 @@ export function TimesheetApprovalCard({ timesheet }: { timesheet: Timesheet }) {
 
           <button
             onClick={() => setExpanded(!expanded)}
-            className="mt-3 text-sm font-medium text-primary hover:text-foreground/80 transition-colors bg-transparent border-none cursor-pointer"
+            className="mt-3 text-sm font-medium text-muted-foreground hover:text-foreground/80 transition-colors bg-transparent border-none cursor-pointer"
           >
             {expanded ? "Hide" : "Show"} details
           </button>
@@ -128,14 +128,14 @@ export function TimesheetApprovalCard({ timesheet }: { timesheet: Timesheet }) {
                     <div className="font-medium text-foreground">
                       {new Date(entry.date).toLocaleDateString()}
                     </div>
-                    <div className="text-primary">
+                    <div className="text-muted-foreground">
                       {entry.project?.name || "No project"} •{" "}
                       {entry.description || "No description"}
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
                     {entry.billable && (
-                      <span className="rounded-full bg-muted px-2 py-1 text-xs font-medium text-primary">
+                      <span className="rounded-full bg-muted px-2 py-1 text-xs font-medium text-muted-foreground">
                         Billable
                       </span>
                     )}
@@ -149,8 +149,8 @@ export function TimesheetApprovalCard({ timesheet }: { timesheet: Timesheet }) {
           )}
 
           {timesheet.comments && (
-            <div className="mt-3 rounded-lg bg-muted/50 p-3 text-sm text-foreground">
-              <div className="mb-1 font-medium text-primary">Comments:</div>
+            <div className="mt-3 rounded-lg bg-muted p-3 text-sm text-foreground">
+              <div className="mb-1 font-medium text-muted-foreground">Comments:</div>
               {timesheet.comments}
             </div>
           )}
@@ -159,14 +159,14 @@ export function TimesheetApprovalCard({ timesheet }: { timesheet: Timesheet }) {
           <button
             onClick={handleApprove}
             disabled={isProcessing}
-            className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 disabled:opacity-50"
+            className="rounded-lg bg-foreground px-4 py-2 text-sm font-medium text-background hover:bg-primary/90 disabled:opacity-50"
           >
             Approve
           </button>
           <button
             onClick={() => setShowDialog("correction")}
             disabled={isProcessing}
-            className="rounded-lg border border-primary/30 px-4 py-2 text-sm font-medium text-primary hover:bg-muted disabled:opacity-50 transition-colors"
+            className="rounded-lg border border-primary/30 px-4 py-2 text-sm font-medium text-muted-foreground hover:bg-muted disabled:opacity-50 transition-colors"
           >
             Request Changes
           </button>
@@ -188,7 +188,7 @@ export function TimesheetApprovalCard({ timesheet }: { timesheet: Timesheet }) {
                 ? "Reject Timesheet"
                 : "Request Correction"}
             </h3>
-            <p className="mt-1 text-sm text-primary">
+            <p className="mt-1 text-sm text-muted-foreground">
               {showDialog === "reject"
                 ? "Please provide a reason for rejecting this timesheet"
                 : "Specify what needs to be corrected"}
@@ -218,10 +218,10 @@ export function TimesheetApprovalCard({ timesheet }: { timesheet: Timesheet }) {
                     : handleRequestCorrection
                 }
                 disabled={isProcessing}
-                className={`rounded-lg px-4 py-2 text-sm font-medium text-primary-foreground ${
+                className={`rounded-lg px-4 py-2 text-sm font-medium text-background ${
                   showDialog === "reject"
                     ? "bg-destructive hover:bg-destructive/90"
-                    : "bg-primary hover:bg-primary/90"
+                    : "bg-foreground hover:bg-foreground/90"
                 }`}
               >
                 {showDialog === "reject" ? "Reject" : "Request Correction"}

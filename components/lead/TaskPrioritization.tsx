@@ -102,7 +102,7 @@ export function TaskPrioritization() {
     <div className="space-y-6">
       <div>
         <h2 className="text-2xl font-bold mb-4">Task Prioritization</h2>
-        <p className="text-primary mb-6">
+        <p className="text-muted-foreground mb-6">
           AI-powered task prioritization based on urgency, impact, and
           dependencies
         </p>
@@ -280,7 +280,7 @@ export function TaskPrioritization() {
                         Priority: {task.priority}/100
                       </Badge>
                     </div>
-                    <p className="text-sm text-primary mt-2">
+                    <p className="text-sm text-muted-foreground mt-2">
                       {task.reasoning}
                     </p>
                   </div>
@@ -294,7 +294,7 @@ export function TaskPrioritization() {
               <h4 className="font-semibold mb-2">Key Dependencies</h4>
               <ul className="space-y-1">
                 {result.dependencies.map((dep, index) => (
-                  <li key={index} className="text-sm text-primary">
+                  <li key={index} className="text-sm text-muted-foreground">
                     • {dep}
                   </li>
                 ))}
@@ -318,13 +318,13 @@ export function TaskPrioritization() {
                         ? "bg-destructive/10 border-destructive/30"
                         : risk.severity === "medium"
                         ? "bg-destructive/5 border-destructive/20"
-                        : "bg-muted/50 border-border"
+                        : "bg-muted border-border"
                     }`}
                   >
                     <div className="flex items-start justify-between">
                       <div>
                         <p className="font-medium text-sm">{risk.task}</p>
-                        <p className="text-sm text-primary mt-1">{risk.risk}</p>
+                        <p className="text-sm text-muted-foreground mt-1">{risk.risk}</p>
                       </div>
                       <Badge
                         variant={

@@ -58,7 +58,7 @@ function AnimatedCounter({
 // Animated Progress Bar with Premium Effects
 function AnimatedProgressBar({
   percentage,
-  color = "bg-primary",
+  color = "bg-foreground",
 }: {
   percentage: number;
   color?: string;
@@ -74,7 +74,7 @@ function AnimatedProgressBar({
   }, [percentage]);
 
   return (
-    <div className="w-full bg-muted/30 rounded-full h-3 overflow-hidden shadow-inner">
+    <div className="w-full bg-muted rounded-full h-3 overflow-hidden ">
       <div
         className={`${color} h-3 rounded-full transition-all duration-1200 ease-out `}
         style={{
@@ -109,7 +109,7 @@ export default function AnalyticsPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-foreground"></div>
       </div>
     );
   }
@@ -117,7 +117,7 @@ export default function AnalyticsPage() {
   if (!analytics) {
     return (
       <div className="p-8">
-        <p className="text-destructive">Failed to load analytics data</p>
+        <p className="text-foreground">Failed to load analytics data</p>
       </div>
     );
   }
@@ -130,29 +130,26 @@ export default function AnalyticsPage() {
       : 0;
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="flex-1 space-y-6 p-4 md:p-8 pt-6">
-        {/* Header with gradient badge */}
-        <div className="flex items-center gap-4">
-          <div>
-            <h2 className="text-3xl font-bold tracking-tight text-primary">
-              Analytics Dashboard
-            </h2>
-            <p className="text-muted-foreground mt-1">
-              Real-time organization performance metrics
-            </p>
-          </div>
-        </div>
+    <div className="space-y-6">
+      {/* Header */}
+      <div className="space-y-1">
+        <h2 className="text-2xl font-bold text-foreground tracking-tight">
+          Analytics Dashboard
+        </h2>
+        <p className="text-sm text-muted-foreground">
+          Real-time organization performance metrics
+        </p>
+      </div>
 
         {/* Summary Cards */}
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {/* Users Card */}
-          <Card className="border border-border hover:bg-accent hover:transition-colors">
+          <Card className="border border-border hover:bg-accent transition-colors">
             <div className="p-6">
               <div className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <p className="text-sm font-medium text-muted-foreground">Total Users</p>
               </div>
-              <div className="text-2xl font-bold tracking-tight text-foreground">
+              <div className="text-lg font-semibold text-foreground">
                 <AnimatedCounter
                   value={analytics.summary.totalUsers}
                   duration={1200}
@@ -165,12 +162,12 @@ export default function AnalyticsPage() {
           </Card>
 
           {/* Projects Card */}
-          <Card className="border border-border hover:bg-accent hover:transition-colors">
+          <Card className="border border-border hover:bg-accent transition-colors">
             <div className="p-6">
               <div className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <p className="text-sm font-medium text-muted-foreground">Total Projects</p>
               </div>
-              <div className="text-2xl font-bold tracking-tight text-foreground">
+              <div className="text-lg font-semibold text-foreground">
                 <AnimatedCounter
                   value={analytics.summary.totalProjects}
                   duration={1200}
@@ -183,12 +180,12 @@ export default function AnalyticsPage() {
           </Card>
 
           {/* Appraisals Card */}
-          <Card className="border border-border hover:bg-accent hover:transition-colors">
+          <Card className="border border-border hover:bg-accent transition-colors">
             <div className="p-6">
               <div className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <p className="text-sm font-medium text-muted-foreground">Appraisals</p>
               </div>
-              <div className="text-2xl font-bold tracking-tight text-foreground">
+              <div className="text-lg font-semibold text-foreground">
                 <AnimatedCounter
                   value={analytics.summary.totalAppraisals}
                   duration={1200}
@@ -201,12 +198,12 @@ export default function AnalyticsPage() {
           </Card>
 
           {/* Engagement Card */}
-          <Card className="border border-border hover:bg-accent hover:transition-colors">
+          <Card className="border border-border hover:bg-accent transition-colors">
             <div className="p-6">
               <div className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <p className="text-sm font-medium text-muted-foreground">Engagement</p>
               </div>
-              <div className="text-2xl font-bold tracking-tight text-foreground">
+              <div className="text-lg font-semibold text-foreground">
                 <AnimatedCounter
                   value={Math.round(
                     (analytics.summary.activeUsers /
@@ -225,9 +222,9 @@ export default function AnalyticsPage() {
         {/* Users by Role & Projects by Status */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Users by Role */}
-          <Card className="p-6 border border-border hover:bg-accent hover:transition-colors h-full">
+          <Card className="p-6 border border-border hover:bg-accent transition-colors h-full">
             <div className="flex items-center gap-3 mb-6">
-              <h3 className="text-2xl font-bold tracking-tight text-foreground">Users by Role</h3>
+              <h3 className="text-lg font-semibold text-foreground">Users by Role</h3>
             </div>
             <div className="space-y-4">
               {analytics.usersByRole.map((item, idx) => (
@@ -236,7 +233,7 @@ export default function AnalyticsPage() {
                     <span className="text-sm font-medium text-muted-foreground uppercase tracking-wide">
                       {item.role}
                     </span>
-                    <span className="text-sm font-black text-primary">
+                    <span className="text-sm font-black text-muted-foreground">
                       {item.count} users
                     </span>
                   </div>
@@ -246,7 +243,7 @@ export default function AnalyticsPage() {
                         ? (item.count / analytics.summary.totalUsers) * 100
                         : 0
                     }
-                    color="bg-primary"
+                    color="bg-foreground"
                   />
                 </div>
               ))}
@@ -254,9 +251,9 @@ export default function AnalyticsPage() {
           </Card>
 
           {/* Projects by Status */}
-          <Card className="p-6 border border-border hover:bg-accent hover:transition-colors h-full">
+          <Card className="p-6 border border-border hover:bg-accent transition-colors h-full">
               <div className="flex items-center gap-3 mb-6">
-                <h3 className="text-2xl font-bold tracking-tight text-foreground">Projects by Status</h3>
+                <h3 className="text-lg font-semibold text-foreground">Projects by Status</h3>
               </div>
               <div className="space-y-4">
                 {analytics.projectsByStatus.map((item) => (
@@ -265,7 +262,7 @@ export default function AnalyticsPage() {
                       <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
                         {item.status}
                       </span>
-                      <span className="text-sm font-bold text-primary">
+                      <span className="text-sm font-bold text-muted-foreground">
                         {item.count} projects
                       </span>
                     </div>
@@ -275,7 +272,7 @@ export default function AnalyticsPage() {
                           ? (item.count / analytics.summary.totalProjects) * 100
                           : 0
                       }
-                      color="bg-primary"
+                      color="bg-foreground"
                     />
                   </div>
                 ))}
@@ -285,21 +282,21 @@ export default function AnalyticsPage() {
 
         {/* PTO Statistics */}
         <div className="mb-12">
-          <Card className="p-6 border border-border hover:bg-accent hover:transition-colors">
+          <Card className="p-6 border border-border hover:bg-accent transition-colors">
             <div className="flex items-center gap-3 mb-6">
-              <h3 className="text-2xl font-bold tracking-tight text-foreground">PTO Requests</h3>
+              <h3 className="text-lg font-semibold text-foreground">PTO Requests</h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {analytics.ptoStats.map((item) => (
                 <Card
                   key={item.status}
-                  className="border border-border hover:bg-accent hover:transition-colors"
+                  className="border border-border hover:bg-accent transition-colors"
                 >
                   <div className="p-6">
                     <div className="flex flex-row items-center justify-between space-y-0 pb-2">
                       <p className="text-sm font-medium text-muted-foreground">{item.status}</p>
                     </div>
-                    <div className="text-2xl font-bold tracking-tight text-foreground">
+                    <div className="text-lg font-semibold text-foreground">
                       <AnimatedCounter value={item.count} duration={1200} />
                     </div>
                     <p className="text-xs text-muted-foreground mt-1">
@@ -314,22 +311,22 @@ export default function AnalyticsPage() {
 
         {/* Timesheet Statistics */}
         <div>
-          <Card className="p-6 border border-border hover:bg-accent hover:transition-colors">
+          <Card className="p-6 border border-border hover:bg-accent transition-colors">
             <div className="flex items-center gap-3 mb-6">
-              <h3 className="text-2xl font-bold tracking-tight text-foreground">Timesheet Status</h3>
+              <h3 className="text-lg font-semibold text-foreground">Timesheet Status</h3>
             </div>
             <div className="space-y-4">
               {analytics.timesheetStats.map((item) => (
                 <Card
                   key={item.status}
-                  className="border border-border hover:bg-accent hover:transition-colors"
+                  className="border border-border hover:bg-accent transition-colors"
                 >
                   <div className="p-4 flex items-center justify-between">
                     <div className="flex items-center gap-4">
                       <div>
                         <p className="font-bold text-foreground">{item.status}</p>
                         <p className="text-sm text-muted-foreground">
-                          <span className="text-primary font-bold">
+                          <span className="text-muted-foreground font-bold">
                             <AnimatedCounter value={item.count} duration={1200} />
                           </span>{" "}
                           submitted
@@ -338,7 +335,7 @@ export default function AnalyticsPage() {
                     </div>
                     <div className="text-right">
                       <p className="text-xs text-muted-foreground">Total Hours</p>
-                      <p className="text-2xl font-bold tracking-tight text-foreground">
+                      <p className="text-lg font-semibold text-foreground">
                         {item.totalHours}h
                       </p>
                     </div>
@@ -348,7 +345,6 @@ export default function AnalyticsPage() {
             </div>
           </Card>
         </div>
-      </div>
     </div>
   );
 }

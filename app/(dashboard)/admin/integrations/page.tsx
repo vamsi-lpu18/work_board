@@ -36,14 +36,14 @@ export default async function IntegrationsPage() {
     : defaultIntegrations;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="space-y-6">
       <div className="flex-1 space-y-6 p-4 md:p-8 pt-6">
         {/* Header with gradient badge */}
         <div className="flex items-center gap-4">
-          <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary ">
+          <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-foreground ">
           </div>
           <div>
-            <h2 className="text-3xl font-bold tracking-tight text-primary">
+            <h2 className="text-3xl font-bold tracking-tight text-muted-foreground">
               Integrations
             </h2>
             <p className="text-muted-foreground mt-1">
@@ -57,13 +57,13 @@ export default async function IntegrationsPage() {
             return (
               <Card 
                 key={integration.name}
-                className="border border-border hover:bg-accent hover:transition-colors"
+                className="border border-border hover:bg-accent transition-colors"
               >
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <Badge 
                       variant={integration.enabled ? "default" : "secondary"}
-                      className={integration.enabled ? "bg-primary text-primary-foreground" : ""}
+                      className={integration.enabled ? "bg-foreground text-background" : ""}
                     >
                       {integration.enabled ? "Enabled" : "Disabled"}
                     </Badge>
@@ -76,7 +76,7 @@ export default async function IntegrationsPage() {
                     variant={integration.enabled ? "outline" : "default"} 
                     className={integration.enabled 
                       ? "w-full hover:bg-muted transition-all"
-                      : "w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                      : "w-full bg-foreground hover:bg-foreground/90 text-background"
                     }
                   >
                     {integration.enabled ? "Configure" : "Enable"}

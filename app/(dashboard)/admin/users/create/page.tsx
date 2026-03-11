@@ -11,14 +11,14 @@ export default async function CreateUserPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="space-y-6">
       <div className="flex-1 space-y-6 p-4 md:p-8 pt-6">
         {/* Header with gradient badge */}
         <div className="flex items-center gap-4">
-          <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary ">
+          <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-foreground ">
           </div>
           <div>
-            <h2 className="text-3xl font-bold tracking-tight text-primary">
+            <h2 className="text-3xl font-bold tracking-tight text-muted-foreground">
               Add New User
             </h2>
             <p className="text-muted-foreground mt-1">

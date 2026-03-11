@@ -47,18 +47,18 @@ export default async function UserDetailPage({
   }`.toUpperCase();
 
   return (
-    <div className="p-6 md:p-8">
+    <div className="space-y-6">
       <div className="space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Link href="/admin/users">
-              <Button variant="ghost" size="icon" className="hover:bg-muted/50">
+              <Button variant="ghost" size="icon" className="hover:bg-muted">
                 ←
               </Button>
             </Link>
             <div>
-              <h2 className="text-3xl font-bold tracking-tight text-primary">
+              <h2 className="text-3xl font-bold tracking-tight text-muted-foreground">
                 Admin - User Details
               </h2>
               <p className="text-muted-foreground mt-1">
@@ -241,7 +241,7 @@ export default async function UserDetailPage({
                 </TabsContent>
 
                 <TabsContent value="team">
-                  <Card className="border-primary/50">
+                  <Card className="border-foreground/50">
                     <CardHeader>
                       <CardTitle>Direct Reports</CardTitle>
                       <CardDescription>
@@ -281,7 +281,7 @@ export default async function UserDetailPage({
                           </TableBody>
                         </Table>
                       ) : (
-                        <p className="text-center text-primary py-8">
+                        <p className="text-center text-muted-foreground py-8">
                           No direct reports
                         </p>
                       )}
@@ -290,7 +290,7 @@ export default async function UserDetailPage({
                 </TabsContent>
 
                 <TabsContent value="performance">
-                  <Card className="border-primary/50">
+                  <Card className="border-foreground/50">
                     <CardHeader>
                       <CardTitle>Performance Metrics</CardTitle>
                       <CardDescription>Recent performance data</CardDescription>
@@ -325,7 +325,7 @@ export default async function UserDetailPage({
                           </TableBody>
                         </Table>
                       ) : (
-                        <p className="text-center text-primary py-8">
+                        <p className="text-center text-muted-foreground py-8">
                           No performance metrics recorded
                         </p>
                       )}
@@ -334,7 +334,7 @@ export default async function UserDetailPage({
                 </TabsContent>
 
                 <TabsContent value="accounts">
-                  <Card className="border-primary/50">
+                  <Card className="border-foreground/50">
                     <CardHeader>
                       <CardTitle>Linked Accounts</CardTitle>
                       <CardDescription>
@@ -368,7 +368,7 @@ export default async function UserDetailPage({
                           </TableBody>
                         </Table>
                       ) : (
-                        <p className="text-center text-primary py-8">
+                        <p className="text-center text-muted-foreground py-8">
                           No linked accounts
                         </p>
                       )}

@@ -155,7 +155,7 @@ export function AITaskAssistant({ onClose }: AITaskAssistantProps) {
                         ? "bg-destructive/10 text-destructive"
                         : subtask.priority === "medium"
                         ? "bg-accent/10 text-accent-foreground"
-                        : "bg-muted text-primary"
+                        : "bg-muted text-muted-foreground"
                     }`}
                   >
                     {subtask.priority}

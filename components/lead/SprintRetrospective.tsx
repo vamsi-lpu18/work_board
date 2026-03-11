@@ -78,7 +78,7 @@ export function SprintRetrospective() {
     <div className="space-y-6">
       <div>
         <h2 className="text-2xl font-bold mb-4">Sprint Retrospective</h2>
-        <p className="text-primary mb-6">
+        <p className="text-muted-foreground mb-6">
           AI-powered sprint retrospective analysis and improvement
           recommendations
         </p>
@@ -208,9 +208,9 @@ export function SprintRetrospective() {
                 {result.metrics.map((metric, index) => (
                   <div key={index} className="p-4 border rounded-lg">
                     <div className="flex items-center justify-between mb-2">
-                      <p className="text-sm text-primary">{metric.name}</p>
+                      <p className="text-sm text-muted-foreground">{metric.name}</p>
                       {metric.trend === "up" && (
-                        <TrendingUp className="h-4 w-4 text-primary" />
+                        <TrendingUp className="h-4 w-4 text-muted-foreground" />
                       )}
                       {metric.trend === "down" && (
                         <TrendingDown className="h-4 w-4 text-destructive" />
@@ -228,7 +228,7 @@ export function SprintRetrospective() {
           {/* What Went Well */}
           <div>
             <h4 className="font-semibold mb-3 flex items-center gap-2">
-              <TrendingUp className="h-5 w-5 text-primary" />
+              <TrendingUp className="h-5 w-5 text-muted-foreground" />
               What Went Well
             </h4>
             <div className="space-y-2">
@@ -281,7 +281,7 @@ export function SprintRetrospective() {
                       {item.priority.toUpperCase()}
                     </Badge>
                   </div>
-                  <p className="text-sm text-primary">Owner: {item.owner}</p>
+                  <p className="text-sm text-muted-foreground">Owner: {item.owner}</p>
                 </div>
               ))}
             </div>
@@ -290,7 +290,7 @@ export function SprintRetrospective() {
           {/* Recommendations */}
           <div>
             <h4 className="font-semibold mb-3 flex items-center gap-2">
-              <Lightbulb className="h-5 w-5 text-primary" />
+              <Lightbulb className="h-5 w-5 text-muted-foreground" />
               AI Recommendations
             </h4>
             <ul className="space-y-2">
@@ -299,7 +299,7 @@ export function SprintRetrospective() {
                   key={index}
                   className="flex items-start gap-2 p-3 bg-muted rounded-lg"
                 >
-                  <span className="text-primary font-bold mt-0.5">•</span>
+                  <span className="text-muted-foreground font-bold mt-0.5">•</span>
                   <span className="text-sm text-foreground">{rec}</span>
                 </li>
               ))}

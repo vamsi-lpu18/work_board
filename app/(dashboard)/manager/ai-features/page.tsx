@@ -59,59 +59,47 @@ export default function ManagerAIFeaturesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background p-6">
-      <div className="mx-auto max-w-7xl">
-        {/* Header */}
-        <div className="mb-8 flex items-center gap-4">
-          <div>
-            <h1 className="text-2xl font-bold tracking-tight text-foreground">
-              AI Features
-            </h1>
-            <p className="mt-1 text-primary">
-              AI-powered tools to enhance team management and decision-making
-            </p>
+    <div className="space-y-6">
+      <div className="space-y-1">
+        <h1 className="text-2xl font-bold text-foreground tracking-tight">
+          AI Features
+        </h1>
+        <p className="text-sm text-muted-foreground">
+          AI-powered tools to enhance team management and decision-making
+        </p>
+      </div>
+
+      {!activeFeature ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {features.map((feature) => (
+            <div
+              key={feature.id}
+              className="rounded-lg border border-border hover:bg-accent transition-colors p-5 cursor-pointer"
+              onClick={() => setActiveFeature(feature.id)}
+            >
+              <h3 className="font-semibold text-foreground mb-1">
+                {feature.title}
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                {feature.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="space-y-4">
+          <Button
+            onClick={() => setActiveFeature(null)}
+            variant="outline"
+            className="border-border"
+          >
+            ← Back to Features
+          </Button>
+          <div className="rounded-lg border border-border p-6">
+            {renderFeature()}
           </div>
         </div>
-
-        {!activeFeature ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {features.map((feature) => {
-              return (
-                <div
-                  key={feature.id}
-                  className="group rounded-lg border border-border hover:bg-accent transition-colors p-6 cursor-pointer hover:"
-                  onClick={() => setActiveFeature(feature.id)}
-                >
-                  <div className="flex flex-col">
-                    <h3 className="font-semibold text-lg mb-2 text-foreground">
-                      {feature.title}
-                    </h3>
-                    <p className="text-sm text-primary mb-4 flex-1">
-                      {feature.description}
-                    </p>
-                    <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:transition-all">
-                      Open Feature
-                    </Button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        ) : (
-          <div>
-            <Button
-              onClick={() => setActiveFeature(null)}
-              variant="outline"
-              className="mb-4 border-border hover:bg-muted hover:bg-accent"
-            >
-              ← Back to Features
-            </Button>
-            <div className="rounded-lg border border-border hover:bg-accent transition-colors p-6">
-              {renderFeature()}
-            </div>
-          </div>
-        )}
-      </div>
+      )}
     </div>
   );
 }

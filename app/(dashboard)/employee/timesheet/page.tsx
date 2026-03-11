@@ -264,19 +264,19 @@ export default function TimesheetPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-96">
-        <ImSpinner2 className="h-8 w-8 animate-spin text-primary" />
+        <ImSpinner2 className="h-8 w-8 animate-spin text-muted-foreground" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="space-y-6">
       <div className="p-6 max-w-7xl mx-auto space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div>
-              <h1 className="text-2xl font-bold tracking-tight text-foreground">Timesheet</h1>
+              <h1 className="text-2xl font-bold text-foreground tracking-tight">Timesheet</h1>
               <p className="text-foreground">Log and track your work hours</p>
             </div>
           </div>
@@ -292,7 +292,7 @@ export default function TimesheetPage() {
             <Button
               onClick={() => setShowAddDialog(true)}
               disabled={timesheet && timesheet.status !== "DRAFT"}
-              className="bg-primary hover:bg-primary/90 hover:transition-colors"
+              className="bg-foreground hover:bg-foreground/90 hover:transition-colors"
             >
               <HiPlus className="h-4 w-4 mr-2" />
               Add Entry
@@ -302,37 +302,37 @@ export default function TimesheetPage() {
 
         {/* Summary Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <Card className="border border-border hover:bg-accent hover:transition-colors p-6">
+          <Card className="border border-border hover:bg-accent transition-colors p-6">
             <div className="flex items-center gap-3">
               <div>
-                <p className="text-sm text-primary font-medium">Total Hours</p>
-                <p className="text-2xl font-bold tracking-tight text-foreground">
+                <p className="text-sm text-muted-foreground font-medium">Total Hours</p>
+                <p className="text-lg font-semibold text-foreground">
                   {stats.totalHours}h
                 </p>
               </div>
             </div>
           </Card>
 
-          <Card className="border border-border hover:bg-accent hover:transition-colors p-6">
+          <Card className="border border-border hover:bg-accent transition-colors p-6">
             <div className="flex items-center gap-3">
               <div>
-                <p className="text-sm text-primary font-medium">
+                <p className="text-sm text-muted-foreground font-medium">
                   Billable Hours
                 </p>
-                <p className="text-2xl font-bold tracking-tight text-foreground">
+                <p className="text-lg font-semibold text-foreground">
                   {stats.billableHours}h
                 </p>
               </div>
             </div>
           </Card>
 
-          <Card className="border border-border hover:bg-accent hover:transition-colors p-6">
+          <Card className="border border-border hover:bg-accent transition-colors p-6">
             <div className="flex items-center gap-3">
               <div>
-                <p className="text-sm text-primary font-medium">
+                <p className="text-sm text-muted-foreground font-medium">
                   Non-Billable Hours
                 </p>
-                <p className="text-2xl font-bold tracking-tight text-foreground">
+                <p className="text-lg font-semibold text-foreground">
                   {stats.nonBillableHours}h
                 </p>
               </div>
@@ -351,13 +351,13 @@ export default function TimesheetPage() {
                     getWeekNumber(new Date(timesheet.startDate))}
                   , {new Date(timesheet.startDate).getFullYear()}
                 </h3>
-                <p className="text-sm text-primary">
+                <p className="text-sm text-muted-foreground">
                   {formatDate(timesheet.startDate)} -{" "}
                   {formatDate(timesheet.endDate)}
                 </p>
               </div>
               <div className="text-right">
-                <p className="text-sm text-primary">Total Hours This Week</p>
+                <p className="text-sm text-muted-foreground">Total Hours This Week</p>
                 <p className="text-3xl font-bold">
                   {timesheet.entries?.reduce(
                     (sum: number, e: any) => sum + e.hours,
@@ -372,7 +372,7 @@ export default function TimesheetPage() {
 
         {/* Add/Edit Entry Dialog */}
         {showAddDialog && (
-          <Card className="p-6 border-2 border-primary/50 bg-muted/50 ">
+          <Card className="p-6 border-2 border-foreground/50 bg-muted ">
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-semibold text-lg">
                 {editingEntry ? "Edit Time Entry" : "Add Time Entry"}
@@ -448,7 +448,7 @@ export default function TimesheetPage() {
                   )}
                 </select>
                 {projects.length === 0 && (
-                  <p className="text-xs text-primary mt-1">
+                  <p className="text-xs text-muted-foreground mt-1">
                     No projects found. Please contact your manager.
                   </p>
                 )}
@@ -517,12 +517,12 @@ export default function TimesheetPage() {
                         {entry.project?.name || "Unknown Project"}
                       </Badge>
                       {entry.task && (
-                        <span className="text-sm text-primary">
+                        <span className="text-sm text-muted-foreground">
                           Task: {entry.taskId}
                         </span>
                       )}
                     </div>
-                    <p className="text-sm text-primary">
+                    <p className="text-sm text-muted-foreground">
                       {entry.description || "No description"}
                     </p>
                   </div>
@@ -544,7 +544,7 @@ export default function TimesheetPage() {
                           variant="ghost"
                           onClick={() => handleDeleteEntry(entry.id)}
                         >
-                          <HiTrash className="h-4 w-4 text-primary" />
+                          <HiTrash className="h-4 w-4 text-muted-foreground" />
                         </Button>
                       </div>
                     )}
@@ -553,8 +553,8 @@ export default function TimesheetPage() {
               ))}
             </div>
           ) : (
-            <div className="text-center py-12 text-primary">
-              <HiClock className="h-16 w-16 text-primary/50 mx-auto mb-4" />
+            <div className="text-center py-12 text-muted-foreground">
+              <HiClock className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
               <p>No time entries for this week yet</p>
               <p className="text-sm mt-2">
                 Click "Add Entry" to log your work hours
@@ -566,7 +566,7 @@ export default function TimesheetPage() {
             timesheet.status === "DRAFT" &&
             timesheet.entries?.length > 0 && (
               <div className="mt-6 pt-6 border-t flex items-center justify-between">
-                <p className="text-sm text-primary">
+                <p className="text-sm text-muted-foreground">
                   {timesheet.entries.length} entries •{" "}
                   {timesheet.entries.reduce(
                     (sum: number, e: any) => sum + e.hours,
@@ -592,7 +592,7 @@ export default function TimesheetPage() {
 
           {timesheet && timesheet.status === "SUBMITTED" && (
             <div className="mt-6 pt-6 border-t">
-              <p className="text-center text-primary">
+              <p className="text-center text-muted-foreground">
                 Timesheet submitted on{" "}
                 {timesheet.submittedAt
                   ? formatDate(timesheet.submittedAt)
@@ -604,8 +604,8 @@ export default function TimesheetPage() {
 
           {timesheet && timesheet.status === "APPROVED" && (
             <div className="mt-6 pt-6 border-t">
-              <div className="bg-muted border border-primary rounded p-4">
-                <p className="text-primary font-medium">
+              <div className="bg-muted border border-foreground rounded p-4">
+                <p className="text-muted-foreground font-medium">
                   ✓ Timesheet approved on{" "}
                   {timesheet.approvedAt
                     ? formatDate(timesheet.approvedAt)
@@ -617,12 +617,12 @@ export default function TimesheetPage() {
 
           {timesheet && timesheet.status === "REJECTED" && (
             <div className="mt-6 pt-6 border-t">
-              <div className="bg-destructive/10 border border-destructive/20 rounded p-4">
-                <p className="text-destructive font-medium">
+              <div className="bg-muted border border-destructive/20 rounded p-4">
+                <p className="text-foreground font-medium">
                   Timesheet rejected
                 </p>
                 {timesheet.rejectionReason && (
-                  <p className="text-sm text-destructive/80 mt-2">
+                  <p className="text-sm text-foreground/80 mt-2">
                     Reason: {timesheet.rejectionReason}
                   </p>
                 )}

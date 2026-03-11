@@ -115,7 +115,7 @@ export default function LeadSettingsPage() {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-foreground mx-auto"></div>
           <p className="mt-4 text-muted-foreground">Loading settings...</p>
         </div>
       </div>
@@ -139,7 +139,7 @@ export default function LeadSettingsPage() {
               onClick={() => setActiveTab("preferences")}
               className={`px-6 py-3 text-sm font-medium border-b-2 transition-colors ${
                 activeTab === "preferences"
-                  ? "border-primary text-primary"
+                  ? "border-foreground text-muted-foreground"
                   : "border-transparent text-muted-foreground hover:text-foreground hover:border-border"
               }`}
             >
@@ -149,7 +149,7 @@ export default function LeadSettingsPage() {
               onClick={() => setActiveTab("notifications")}
               className={`px-6 py-3 text-sm font-medium border-b-2 transition-colors ${
                 activeTab === "notifications"
-                  ? "border-primary text-primary"
+                  ? "border-foreground text-muted-foreground"
                   : "border-transparent text-muted-foreground hover:text-foreground hover:border-border"
               }`}
             >
@@ -159,7 +159,7 @@ export default function LeadSettingsPage() {
               onClick={() => setActiveTab("password")}
               className={`px-6 py-3 text-sm font-medium border-b-2 transition-colors ${
                 activeTab === "password"
-                  ? "border-primary text-primary"
+                  ? "border-foreground text-muted-foreground"
                   : "border-transparent text-muted-foreground hover:text-foreground hover:border-border"
               }`}
             >
@@ -188,7 +188,7 @@ export default function LeadSettingsPage() {
                         checked={preferences.compactView}
                         onChange={(e) => setPreferences({ ...preferences, compactView: e.target.checked })}
                       />
-                      <div className="w-11 h-6 bg-muted peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-card after:border-border after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                      <div className="w-11 h-6 bg-muted peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-border/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-card after:border-border after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-foreground"></div>
                     </label>
                   </div>
 
@@ -198,7 +198,7 @@ export default function LeadSettingsPage() {
                       id="timezone"
                       value={preferences.timezone}
                       onChange={(e) => setPreferences({ ...preferences, timezone: e.target.value })}
-                      className="w-full px-3 py-2 border border-border hover:bg-accent transition-colors rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full px-3 py-2 border border-border hover:bg-accent transition-colors rounded-md focus:outline-none focus:ring-2 focus:ring-border"
                     >
                       <option>UTC (GMT+0:00)</option>
                       <option>Eastern Time (GMT-5:00)</option>
@@ -214,7 +214,7 @@ export default function LeadSettingsPage() {
                       id="language"
                       value={preferences.language}
                       onChange={(e) => setPreferences({ ...preferences, language: e.target.value })}
-                      className="w-full px-3 py-2 border border-border hover:bg-accent transition-colors rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full px-3 py-2 border border-border hover:bg-accent transition-colors rounded-md focus:outline-none focus:ring-2 focus:ring-border"
                     >
                       <option>English</option>
                       <option>Spanish</option>
@@ -254,7 +254,7 @@ export default function LeadSettingsPage() {
                         checked={notifications.taskAssignments}
                         onChange={(e) => setNotifications({ ...notifications, taskAssignments: e.target.checked })}
                       />
-                      <div className="w-11 h-6 bg-muted peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-card after:border-border after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                      <div className="w-11 h-6 bg-muted peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-border/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-card after:border-border after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-foreground"></div>
                     </label>
                   </div>
 
@@ -270,7 +270,7 @@ export default function LeadSettingsPage() {
                         checked={notifications.codeReviews}
                         onChange={(e) => setNotifications({ ...notifications, codeReviews: e.target.checked })}
                       />
-                      <div className="w-11 h-6 bg-muted peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-card after:border-border after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                      <div className="w-11 h-6 bg-muted peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-border/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-card after:border-border after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-foreground"></div>
                     </label>
                   </div>
 
@@ -286,7 +286,7 @@ export default function LeadSettingsPage() {
                         checked={notifications.sprintUpdates}
                         onChange={(e) => setNotifications({ ...notifications, sprintUpdates: e.target.checked })}
                       />
-                      <div className="w-11 h-6 bg-muted peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-card after:border-border after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                      <div className="w-11 h-6 bg-muted peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-border/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-card after:border-border after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-foreground"></div>
                     </label>
                   </div>
 
@@ -302,7 +302,7 @@ export default function LeadSettingsPage() {
                         checked={notifications.blockedTasks}
                         onChange={(e) => setNotifications({ ...notifications, blockedTasks: e.target.checked })}
                       />
-                      <div className="w-11 h-6 bg-muted peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-card after:border-border after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                      <div className="w-11 h-6 bg-muted peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-border/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-card after:border-border after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-foreground"></div>
                     </label>
                   </div>
 
@@ -318,7 +318,7 @@ export default function LeadSettingsPage() {
                         checked={notifications.weeklySummary}
                         onChange={(e) => setNotifications({ ...notifications, weeklySummary: e.target.checked })}
                       />
-                      <div className="w-11 h-6 bg-muted peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-card after:border-border after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                      <div className="w-11 h-6 bg-muted peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-border/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-card after:border-border after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-foreground"></div>
                     </label>
                   </div>
                 </div>
@@ -386,12 +386,12 @@ export default function LeadSettingsPage() {
               </div>
 
               <div className="pt-6 border-t">
-                <div className="bg-destructive/10 border border-destructive/30 rounded-lg p-4">
-                  <h4 className="text-sm font-semibold text-destructive mb-2">Danger Zone</h4>
-                  <p className="text-sm text-destructive/80 mb-3">
+                <div className="bg-muted border border-destructive/30 rounded-lg p-4">
+                  <h4 className="text-sm font-semibold text-foreground mb-2">Danger Zone</h4>
+                  <p className="text-sm text-foreground/80 mb-3">
                     Once you delete your account, there is no going back. Please be certain.
                   </p>
-                  <Button variant="outline" className="border-destructive/30 text-destructive hover:bg-destructive/10">
+                  <Button variant="outline" className="border-destructive/30 text-foreground hover:bg-muted">
                     Request Account Deletion
                   </Button>
                 </div>

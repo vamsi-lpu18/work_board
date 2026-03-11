@@ -36,12 +36,12 @@ export default async function AuditLogsPage() {
   const { logs, total } = result;
 
   return (
-    <div className="p-6 md:p-8">
+    <div className="space-y-6">
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight text-primary">
+              <h2 className="text-3xl font-bold tracking-tight text-muted-foreground">
                 Audit Logs
               </h2>
               <p className="text-muted-foreground mt-1">
@@ -57,11 +57,11 @@ export default async function AuditLogsPage() {
           </Button>
         </div>
 
-        <Card className="border border-border hover:bg-accent hover:transition-colors">
+        <Card className="border border-border hover:bg-accent transition-colors">
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle className="text-2xl text-primary">Recent Activity</CardTitle>
+                <CardTitle className="text-2xl text-muted-foreground">Recent Activity</CardTitle>
                 <CardDescription className="text-base">
                   Showing {logs.length} of {total} total log entries
                 </CardDescription>
@@ -86,7 +86,7 @@ export default async function AuditLogsPage() {
                     <TableRow>
                       <TableCell
                         colSpan={6}
-                        className="text-center py-8 text-primary"
+                        className="text-center py-8 text-muted-foreground"
                       >
                         No audit logs found
                       </TableCell>
@@ -95,7 +95,7 @@ export default async function AuditLogsPage() {
                     logs.map((log) => (
                       <TableRow
                         key={log.id}
-                        className="hover:bg-muted/50 transition-colors"
+                        className="hover:bg-muted transition-colors"
                       >
                         <TableCell className="text-sm">
                           {new Date(log.createdAt).toLocaleString()}
@@ -121,7 +121,7 @@ export default async function AuditLogsPage() {
                         <TableCell>
                           <Badge
                             variant="outline"
-                            className="border-destructive/50 text-destructive"
+                            className="border-destructive/50 text-foreground"
                           >
                             {log.action.replace(/_/g, " ")}
                           </Badge>

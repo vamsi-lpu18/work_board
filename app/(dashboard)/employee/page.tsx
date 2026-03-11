@@ -36,11 +36,11 @@ export default function EmployeeDashboardPage() {
 
       {/* Quick Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <Card className="border-border/50 hover:border-primary/30 transition-colors">
+        <Card className="border-border hover:bg-accent transition-colors">
           <CardContent className="pt-5 pb-4">
             <div className="flex items-center gap-3 mb-3">
               <div className="p-2 rounded-lg bg-muted">
-                <HiListBullet className="h-4 w-4 text-primary" />
+                <HiListBullet className="h-4 w-4 text-muted-foreground" />
               </div>
               <p className="text-sm font-medium text-muted-foreground">Active Tasks</p>
             </div>
@@ -48,11 +48,11 @@ export default function EmployeeDashboardPage() {
           </CardContent>
         </Card>
 
-        <Card className="border-border/50 hover:border-orange-500/30 transition-colors">
+        <Card className="border-border hover:bg-accent transition-colors">
           <CardContent className="pt-5 pb-4">
             <div className="flex items-center gap-3 mb-3">
-              <div className="p-2 rounded-lg bg-orange-500/10">
-                <HiClock className="h-4 w-4 text-orange-500" />
+              <div className="p-2 rounded-lg bg-muted">
+                <HiClock className="h-4 w-4 text-muted-foreground" />
               </div>
               <p className="text-sm font-medium text-muted-foreground">Due This Week</p>
             </div>
@@ -60,11 +60,11 @@ export default function EmployeeDashboardPage() {
           </CardContent>
         </Card>
 
-        <Card className="border-border/50 hover:border-destructive/30 transition-colors">
+        <Card className="border-border hover:bg-accent transition-colors">
           <CardContent className="pt-5 pb-4">
             <div className="flex items-center gap-3 mb-3">
-              <div className="p-2 rounded-lg bg-destructive/10">
-                <HiExclamationCircle className="h-4 w-4 text-destructive" />
+              <div className="p-2 rounded-lg bg-muted">
+                <HiExclamationCircle className="h-4 w-4 text-foreground" />
               </div>
               <p className="text-sm font-medium text-muted-foreground">Overdue</p>
             </div>
@@ -72,11 +72,11 @@ export default function EmployeeDashboardPage() {
           </CardContent>
         </Card>
 
-        <Card className="border-border/50 hover:border-green-500/30 transition-colors">
+        <Card className="border-border hover:bg-accent transition-colors">
           <CardContent className="pt-5 pb-4">
             <div className="flex items-center gap-3 mb-3">
-              <div className="p-2 rounded-lg bg-green-500/10">
-                <HiCheckCircle className="h-4 w-4 text-green-500" />
+              <div className="p-2 rounded-lg bg-muted">
+                <HiCheckCircle className="h-4 w-4 text-foreground" />
               </div>
               <p className="text-sm font-medium text-muted-foreground">Completed</p>
             </div>
@@ -92,11 +92,11 @@ export default function EmployeeDashboardPage() {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <Link href="/employee/my-work">
-            <Card className="group border-border/50 hover:border-primary/30 transition-colors cursor-pointer">
+            <Card className="group border-border hover:bg-accent transition-colors cursor-pointer">
               <CardContent className="p-5">
                 <div className="flex items-center justify-between mb-3">
                   <div className="p-2 rounded-lg bg-muted">
-                    <HiCheckCircle className="h-4 w-4 text-primary" />
+                    <HiCheckCircle className="h-4 w-4 text-muted-foreground" />
                   </div>
                   <HiArrowTopRightOnSquare className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
                 </div>
@@ -111,11 +111,11 @@ export default function EmployeeDashboardPage() {
           </Link>
 
           <Link href="/employee/timesheet">
-            <Card className="group border-border/50 hover:border-primary/30 transition-colors cursor-pointer">
+            <Card className="group border-border hover:bg-accent transition-colors cursor-pointer">
               <CardContent className="p-5">
                 <div className="flex items-center justify-between mb-3">
                   <div className="p-2 rounded-lg bg-muted">
-                    <HiClock className="h-4 w-4 text-primary" />
+                    <HiClock className="h-4 w-4 text-muted-foreground" />
                   </div>
                   <HiArrowTopRightOnSquare className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
                 </div>
@@ -130,11 +130,11 @@ export default function EmployeeDashboardPage() {
           </Link>
 
           <Link href="/employee/performance">
-            <Card className="group border-border/50 hover:border-primary/30 transition-colors cursor-pointer">
+            <Card className="group border-border hover:bg-accent transition-colors cursor-pointer">
               <CardContent className="p-5">
                 <div className="flex items-center justify-between mb-3">
                   <div className="p-2 rounded-lg bg-muted">
-                    <HiChartBarSquare className="h-4 w-4 text-primary" />
+                    <HiChartBarSquare className="h-4 w-4 text-muted-foreground" />
                   </div>
                   <HiArrowTopRightOnSquare className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
                 </div>
@@ -149,11 +149,11 @@ export default function EmployeeDashboardPage() {
           </Link>
 
           <Link href="/employee/goals">
-            <Card className="group border-border/50 hover:border-primary/30 transition-colors cursor-pointer">
+            <Card className="group border-border hover:bg-accent transition-colors cursor-pointer">
               <CardContent className="p-5">
                 <div className="flex items-center justify-between mb-3">
                   <div className="p-2 rounded-lg bg-muted">
-                    <HiFlag className="h-4 w-4 text-primary" />
+                    <HiFlag className="h-4 w-4 text-muted-foreground" />
                   </div>
                   <HiArrowTopRightOnSquare className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
                 </div>
@@ -168,11 +168,11 @@ export default function EmployeeDashboardPage() {
           </Link>
 
           <Link href="/employee/calendar">
-            <Card className="group border-border/50 hover:border-primary/30 transition-colors cursor-pointer">
+            <Card className="group border-border hover:bg-accent transition-colors cursor-pointer">
               <CardContent className="p-5">
                 <div className="flex items-center justify-between mb-3">
                   <div className="p-2 rounded-lg bg-muted">
-                    <HiCalendar className="h-4 w-4 text-primary" />
+                    <HiCalendar className="h-4 w-4 text-muted-foreground" />
                   </div>
                   <HiArrowTopRightOnSquare className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
                 </div>
@@ -187,11 +187,11 @@ export default function EmployeeDashboardPage() {
           </Link>
 
           <Link href="/employee/appraisal">
-            <Card className="group border-border/50 hover:border-primary/30 transition-colors cursor-pointer">
+            <Card className="group border-border hover:bg-accent transition-colors cursor-pointer">
               <CardContent className="p-5">
                 <div className="flex items-center justify-between mb-3">
                   <div className="p-2 rounded-lg bg-muted">
-                    <HiDocumentText className="h-4 w-4 text-primary" />
+                    <HiDocumentText className="h-4 w-4 text-muted-foreground" />
                   </div>
                   <HiArrowTopRightOnSquare className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
                 </div>
@@ -208,7 +208,7 @@ export default function EmployeeDashboardPage() {
       </div>
 
       {/* Today's Tasks */}
-      <Card className="border-border/50">
+      <Card className="border-border">
         <CardHeader className="pb-4">
           <CardTitle className="text-lg font-semibold text-foreground">
             {"Today's Tasks"}
@@ -219,9 +219,9 @@ export default function EmployeeDashboardPage() {
         </CardHeader>
         <CardContent>
           <div className="space-y-2">
-            <div className="flex items-center justify-between p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors cursor-pointer">
+            <div className="flex items-center justify-between p-3 rounded-lg bg-muted hover:bg-muted transition-colors cursor-pointer">
               <div className="flex items-center gap-3">
-                <div className="h-2 w-2 rounded-full bg-primary" />
+                <div className="h-2 w-2 rounded-full bg-foreground" />
                 <div>
                   <p className="text-sm font-medium text-foreground">
                     Update user dashboard UI
@@ -231,12 +231,12 @@ export default function EmployeeDashboardPage() {
                   </p>
                 </div>
               </div>
-              <Badge className="bg-muted text-primary hover:bg-primary/20 border-0 text-xs">
+              <Badge className="bg-muted text-muted-foreground hover:bg-muted border-0 text-xs">
                 In Progress
               </Badge>
             </div>
 
-            <div className="flex items-center justify-between p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors cursor-pointer">
+            <div className="flex items-center justify-between p-3 rounded-lg bg-muted hover:bg-muted transition-colors cursor-pointer">
               <div className="flex items-center gap-3">
                 <div className="h-2 w-2 rounded-full bg-muted-foreground" />
                 <div>
@@ -251,7 +251,7 @@ export default function EmployeeDashboardPage() {
               <Badge variant="secondary" className="text-xs">To Do</Badge>
             </div>
 
-            <div className="flex items-center justify-between p-3 rounded-lg bg-destructive/5 hover:bg-destructive/10 transition-colors cursor-pointer">
+            <div className="flex items-center justify-between p-3 rounded-lg bg-destructive/5 hover:bg-muted transition-colors cursor-pointer">
               <div className="flex items-center gap-3">
                 <div className="h-2 w-2 rounded-full bg-destructive" />
                 <div>
@@ -267,10 +267,10 @@ export default function EmployeeDashboardPage() {
             </div>
           </div>
 
-          <div className="mt-4 pt-3 border-t border-border/50">
+          <div className="mt-4 pt-3 border-t border-border">
             <Link
               href="/employee/my-work"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-foreground/80 transition-colors"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               View all tasks
               <HiArrowTopRightOnSquare className="h-3.5 w-3.5" />

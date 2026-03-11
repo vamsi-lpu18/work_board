@@ -126,7 +126,7 @@ export function AIMeetingSummary() {
               <ul className="space-y-2">
                 {result.decisions.map((decision: string, idx: number) => (
                   <li key={idx} className="text-sm flex items-start gap-2">
-                    <span className="text-primary font-bold mt-1">✓</span>
+                    <span className="text-muted-foreground font-bold mt-1">✓</span>
                     <span>{decision}</span>
                   </li>
                 ))}

@@ -31,7 +31,7 @@ export function TeamsClient({ initialTeams, departments }: TeamsClientProps) {
         <div className="space-y-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary ">
+              <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-foreground ">
               </div>
               <div>
                 <h2 className="text-3xl font-bold tracking-tight text-foreground">
@@ -44,7 +44,7 @@ export function TeamsClient({ initialTeams, departments }: TeamsClientProps) {
             </div>
             <Button 
               onClick={() => setOpenCreateDialog(true)}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground transition-colors"
+              className="bg-foreground hover:bg-foreground/90 text-background transition-colors"
             >
               + Add Team
             </Button>
@@ -60,7 +60,7 @@ export function TeamsClient({ initialTeams, departments }: TeamsClientProps) {
                 </p>
                 <Button 
                   onClick={() => setOpenCreateDialog(true)}
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                  className="bg-foreground hover:bg-foreground/90 text-background"
                 >
                   + Create Team
                 </Button>
@@ -107,17 +107,17 @@ export function TeamsClient({ initialTeams, departments }: TeamsClientProps) {
                     <div className="space-y-2">
                       <div className="flex justify-between text-sm">
                         <span className="text-muted-foreground">Department:</span>
-                        <span className="font-medium text-primary">{team.department.name}</span>
+                        <span className="font-medium text-muted-foreground">{team.department.name}</span>
                       </div>
                       <div className="flex justify-between text-sm">
                         <span className="text-muted-foreground">Members:</span>
-                        <Badge variant="secondary" className="bg-muted text-primary">
+                        <Badge variant="secondary" className="bg-muted text-muted-foreground">
                           {team._count.users}
                         </Badge>
                       </div>
                       <div className="flex justify-between text-sm">
                         <span className="text-muted-foreground">Projects:</span>
-                        <Badge variant="secondary" className="bg-muted text-primary">
+                        <Badge variant="secondary" className="bg-muted text-muted-foreground">
                           {team._count.projects}
                         </Badge>
                       </div>

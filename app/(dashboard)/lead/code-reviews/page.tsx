@@ -18,13 +18,13 @@ export default async function LeadCodeReviewsPage() {
 
   if (!user?.team) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="space-y-6">
         <div className="text-center py-12">
-          <div className="border border-border rounded-lg p-8 max-w-md mx-auto hover:bg-accent hover:transition-colors">
+          <div className="border border-border rounded-lg p-8 max-w-md mx-auto hover:bg-accent transition-colors">
             <h2 className="text-xl font-semibold text-foreground mb-2">
               No Team Assigned
             </h2>
-            <p className="text-primary">
+            <p className="text-muted-foreground">
               Please contact your administrator to assign you to a team.
             </p>
           </div>
@@ -46,11 +46,11 @@ export default async function LeadCodeReviewsPage() {
   const getStatusBadge = (status: string) => {
     switch (status) {
       case "pending":
-        return "bg-muted text-primary";
+        return "bg-muted text-muted-foreground";
       case "approved":
-        return "bg-muted text-primary";
+        return "bg-muted text-muted-foreground";
       case "changes_requested":
-        return "bg-muted text-primary";
+        return "bg-muted text-muted-foreground";
       default:
         return "bg-muted text-foreground";
     }
@@ -70,32 +70,32 @@ export default async function LeadCodeReviewsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background space-y-6">
+    <div className="space-y-6">
       <div>
-        <div className="flex items-center gap-2 px-3 py-1.5 bg-primary text-primary-foreground rounded-full w-fit mb-3">
+        <div className="flex items-center gap-2 px-3 py-1.5 bg-foreground text-background rounded-full w-fit mb-3">
           <span className="text-sm font-semibold">Code Quality</span>
         </div>
-        <h1 className="text-2xl font-bold tracking-tight text-foreground">Code Reviews</h1>
-        <p className="text-primary mt-2">
+        <h1 className="text-2xl font-bold text-foreground tracking-tight">Code Reviews</h1>
+        <p className="text-muted-foreground mt-2">
           Review and approve pull requests from your team
         </p>
       </div>
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="border border-border rounded-lg p-6 hover:bg-accent hover:transition-colors">
+        <div className="border border-border rounded-lg p-6 hover:bg-accent transition-colors">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-primary mb-1">
+              <p className="text-sm font-medium text-muted-foreground mb-1">
                 Pending Review
               </p>
-              <p className="text-2xl font-bold tracking-tight text-foreground">
+              <p className="text-lg font-semibold text-foreground">
                 {pendingReviews.length}
               </p>
             </div>
-            <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center shadow-md">
+            <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center ">
               <svg
-                className="w-6 h-6 text-primary"
+                className="w-6 h-6 text-muted-foreground"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -111,19 +111,19 @@ export default async function LeadCodeReviewsPage() {
           </div>
         </div>
 
-        <div className="border border-border rounded-lg p-6 hover:bg-accent hover:transition-colors">
+        <div className="border border-border rounded-lg p-6 hover:bg-accent transition-colors">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-primary mb-1">
+              <p className="text-sm font-medium text-muted-foreground mb-1">
                 Changes Requested
               </p>
-              <p className="text-2xl font-bold tracking-tight text-foreground">
+              <p className="text-lg font-semibold text-foreground">
                 {inProgressReviews.length}
               </p>
             </div>
-            <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center shadow-md">
+            <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center ">
               <svg
-                className="w-6 h-6 text-primary"
+                className="w-6 h-6 text-muted-foreground"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -139,17 +139,17 @@ export default async function LeadCodeReviewsPage() {
           </div>
         </div>
 
-        <div className="border border-border rounded-lg p-6 hover:bg-accent hover:transition-colors">
+        <div className="border border-border rounded-lg p-6 hover:bg-accent transition-colors">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-primary mb-1">Approved</p>
-              <p className="text-2xl font-bold tracking-tight text-foreground">
+              <p className="text-sm font-medium text-muted-foreground mb-1">Approved</p>
+              <p className="text-lg font-semibold text-foreground">
                 {approvedReviews.length}
               </p>
             </div>
-            <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center shadow-md">
+            <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center ">
               <svg
-                className="w-6 h-6 text-primary"
+                className="w-6 h-6 text-muted-foreground"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -170,7 +170,7 @@ export default async function LeadCodeReviewsPage() {
       {pendingReviews.length > 0 && (
         <div className="border border-border rounded-lg hover:bg-accent transition-colors">
           <div className="p-6">
-            <h2 className="text-xl font-bold text-primary mb-4">
+            <h2 className="text-xl font-bold text-muted-foreground mb-4">
               Pending Your Review ({pendingReviews.length})
             </h2>
             <div className="space-y-3">
@@ -193,13 +193,13 @@ export default async function LeadCodeReviewsPage() {
                           {review.prTitle}
                         </h3>
                       </div>
-                      <p className="text-sm text-primary mb-3">
+                      <p className="text-sm text-muted-foreground mb-3">
                         by {review.author?.name || "Unknown"} •{" "}
                         {formatDistanceToNow(new Date(review.createdAt), {
                           addSuffix: true,
                         })}
                       </p>
-                      <div className="flex items-center gap-4 text-sm text-primary">
+                      <div className="flex items-center gap-4 text-sm text-muted-foreground">
                         <span>{review.filesChanged} files changed</span>
                         <span>{review.linesChanged} lines</span>
                         {review.comments != null && review.comments > 0 && (
@@ -211,7 +211,7 @@ export default async function LeadCodeReviewsPage() {
                       href={review.prUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="ml-4 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:transition-colors text-sm font-medium"
+                      className="ml-4 px-4 py-2 bg-foreground text-background rounded-lg hover:transition-colors text-sm font-medium"
                     >
                       Review PR →
                     </a>
@@ -227,7 +227,7 @@ export default async function LeadCodeReviewsPage() {
       {inProgressReviews.length > 0 && (
         <div className="border border-border rounded-lg hover:bg-accent transition-colors">
           <div className="p-6">
-            <h2 className="text-xl font-bold text-primary mb-4">
+            <h2 className="text-xl font-bold text-muted-foreground mb-4">
               Changes Requested ({inProgressReviews.length})
             </h2>
             <div className="space-y-3">
@@ -250,7 +250,7 @@ export default async function LeadCodeReviewsPage() {
                           {review.prTitle}
                         </h3>
                       </div>
-                      <p className="text-sm text-primary mb-3">
+                      <p className="text-sm text-muted-foreground mb-3">
                         by {review.author?.name || "Unknown"} • Reviewed{" "}
                         {review.reviewedAt
                           ? formatDistanceToNow(new Date(review.reviewedAt), {
@@ -258,7 +258,7 @@ export default async function LeadCodeReviewsPage() {
                             })
                           : "recently"}
                       </p>
-                      <div className="flex items-center gap-4 text-sm text-primary">
+                      <div className="flex items-center gap-4 text-sm text-muted-foreground">
                         <span>{review.filesChanged} files</span>
                         <span>{review.linesChanged} lines</span>
                         {review.comments != null && (
@@ -270,7 +270,7 @@ export default async function LeadCodeReviewsPage() {
                       href={review.prUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="ml-4 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:transition-colors text-sm font-medium"
+                      className="ml-4 px-4 py-2 bg-foreground text-background rounded-lg hover:transition-colors text-sm font-medium"
                     >
                       View PR →
                     </a>
@@ -286,7 +286,7 @@ export default async function LeadCodeReviewsPage() {
       {approvedReviews.length > 0 && (
         <div className="border border-border rounded-lg hover:bg-accent transition-colors">
           <div className="p-6">
-            <h2 className="text-xl font-bold text-primary mb-4">
+            <h2 className="text-xl font-bold text-muted-foreground mb-4">
               Recently Approved
             </h2>
             <div className="space-y-3">
@@ -309,7 +309,7 @@ export default async function LeadCodeReviewsPage() {
                           {review.prTitle}
                         </h3>
                       </div>
-                      <p className="text-sm text-primary mb-3">
+                      <p className="text-sm text-muted-foreground mb-3">
                         by {review.author?.name || "Unknown"} • Approved{" "}
                         {review.reviewedAt
                           ? formatDistanceToNow(new Date(review.reviewedAt), {
@@ -317,7 +317,7 @@ export default async function LeadCodeReviewsPage() {
                             })
                           : "recently"}
                       </p>
-                      <div className="flex items-center gap-4 text-sm text-primary">
+                      <div className="flex items-center gap-4 text-sm text-muted-foreground">
                         <span>{review.filesChanged} files</span>
                         <span>{review.linesChanged} lines</span>
                         {review.comments != null && review.comments > 0 && (
@@ -329,7 +329,7 @@ export default async function LeadCodeReviewsPage() {
                       href={review.prUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="ml-4 text-primary hover:text-foreground font-medium text-sm transition-all"
+                      className="ml-4 text-muted-foreground hover:text-foreground font-medium text-sm transition-all"
                     >
                       View PR →
                     </a>
@@ -343,11 +343,11 @@ export default async function LeadCodeReviewsPage() {
 
       {/* Empty State */}
       {codeReviews.length === 0 && (
-        <div className="border border-border rounded-lg p-12 text-center hover:bg-accent hover:transition-colors">
+        <div className="border border-border rounded-lg p-12 text-center hover:bg-accent transition-colors">
           <div className="max-w-md mx-auto">
-            <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+            <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4 ">
               <svg
-                className="w-8 h-8 text-primary"
+                className="w-8 h-8 text-muted-foreground"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -363,7 +363,7 @@ export default async function LeadCodeReviewsPage() {
             <h2 className="text-lg font-semibold text-foreground mb-2">
               No Code Reviews Yet
             </h2>
-            <p className="text-primary">
+            <p className="text-muted-foreground">
               Pull requests from your team will appear here for review.
             </p>
           </div>

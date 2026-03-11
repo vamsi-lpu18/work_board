@@ -277,7 +277,7 @@ export function AISprintPlanning() {
               <ul className="space-y-1">
                 {result.recommendations.map((rec: string, idx: number) => (
                   <li key={idx} className="text-sm flex items-start gap-2">
-                    <span className="text-primary mt-1">→</span>
+                    <span className="text-muted-foreground mt-1">→</span>
                     <span>{rec}</span>
                   </li>
                 ))}

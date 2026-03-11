@@ -146,19 +146,19 @@ export default function AppraisalPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-96">
-        <ImSpinner2 className="h-8 w-8 animate-spin text-primary" />
+        <ImSpinner2 className="h-8 w-8 animate-spin text-muted-foreground" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="space-y-6">
       <div className="p-6 max-w-7xl mx-auto space-y-6">
         {/* Header */}
         <div className="flex items-center gap-3">
           
           <div>
-            <h1 className="text-2xl font-bold tracking-tight text-foreground">
+            <h1 className="text-2xl font-bold text-foreground tracking-tight">
               Performance Appraisals
             </h1>
             <p className="text-muted-foreground">
@@ -173,8 +173,8 @@ export default function AppraisalPage() {
             <div className="flex items-center gap-3">
              
               <div>
-                <p className="text-sm text-primary font-medium">Total Reviews</p>
-                <p className="text-2xl font-bold tracking-tight text-foreground">
+                <p className="text-sm text-muted-foreground font-medium">Total Reviews</p>
+                <p className="text-lg font-semibold text-foreground">
                   {stats.total}
                 </p>
               </div>
@@ -185,8 +185,8 @@ export default function AppraisalPage() {
             <div className="flex items-center gap-3">
           
               <div>
-                <p className="text-sm text-primary font-medium">Pending</p>
-                <p className="text-2xl font-bold tracking-tight text-foreground">
+                <p className="text-sm text-muted-foreground font-medium">Pending</p>
+                <p className="text-lg font-semibold text-foreground">
                   {stats.draft + stats.inProgress}
                 </p>
               </div>
@@ -197,8 +197,8 @@ export default function AppraisalPage() {
             <div className="flex items-center gap-3">
           
               <div>
-                <p className="text-sm text-primary font-medium">Completed</p>
-                <p className="text-2xl font-bold tracking-tight text-foreground">
+                <p className="text-sm text-muted-foreground font-medium">Completed</p>
+                <p className="text-lg font-semibold text-foreground">
                   {stats.completed}
                 </p>
               </div>
@@ -209,8 +209,8 @@ export default function AppraisalPage() {
             <div className="flex items-center gap-3">
           
               <div>
-                <p className="text-sm text-primary font-medium">Avg Rating</p>
-                <p className="text-2xl font-bold tracking-tight text-foreground">
+                <p className="text-sm text-muted-foreground font-medium">Avg Rating</p>
+                <p className="text-lg font-semibold text-foreground">
                   {stats.avgRating > 0 ? stats.avgRating.toFixed(1) : "N/A"}
                 </p>
               </div>
@@ -311,7 +311,7 @@ export default function AppraisalPage() {
               {currentAppraisal.rating && (
                 <div>
                   <h4 className="font-semibold mb-2 text-foreground">Your Self-Rating</h4>
-                  <p className="text-2xl font-bold tracking-tight text-foreground">
+                  <p className="text-lg font-semibold text-foreground">
                     {currentAppraisal.rating}/5
                   </p>
                 </div>
@@ -329,7 +329,7 @@ export default function AppraisalPage() {
               {currentAppraisal.finalRating && (
                 <div className="mt-4">
                   <h4 className="font-semibold mb-2 text-foreground">Final Rating</h4>
-                  <p className="text-2xl font-bold tracking-tight text-foreground">
+                  <p className="text-lg font-semibold text-foreground">
                     {currentAppraisal.finalRating}/5
                   </p>
                 </div>
@@ -342,11 +342,11 @@ export default function AppraisalPage() {
         {!currentAppraisal && (
           <Card className="border-border p-6">
           <div className="text-center py-12">
-            <HiDocumentText className="h-16 w-16 text-primary mx-auto mb-4" />
-            <h3 className="font-semibold text-lg mb-2 text-primary">
+            <HiDocumentText className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
+            <h3 className="font-semibold text-lg mb-2 text-foreground">
               No Active Appraisal Cycle
             </h3>
-            <p className="text-primary">
+            <p className="text-muted-foreground">
               There is no active appraisal cycle at the moment. Check back
               later.
             </p>
@@ -356,7 +356,7 @@ export default function AppraisalPage() {
 
         {/* Past Appraisals */}
         <Card className="border-border   p-6">
-          <h3 className="font-semibold text-lg mb-4 text-primary">Appraisal History</h3>
+          <h3 className="font-semibold text-lg mb-4 text-muted-foreground">Appraisal History</h3>
           {pastAppraisals.length > 0 ? (
             <div className="space-y-3">
               {pastAppraisals.map((appraisal) => {
@@ -411,7 +411,7 @@ export default function AppraisalPage() {
                       </div>
                       {appraisal.selfReview && (
                         <div className="mt-3 pt-3  border-t">
-                          <p className="text-sm text-primary line-clamp-2">
+                          <p className="text-sm text-muted-foreground line-clamp-2">
                             {appraisal.selfReview}
                           </p>
                         </div>
@@ -423,7 +423,7 @@ export default function AppraisalPage() {
               })}
             </div>
           ) : (
-            <div className="text-center py-8 text-primary">
+            <div className="text-center py-8 text-muted-foreground">
               No appraisal history found
             </div>
           )}

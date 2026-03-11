@@ -80,60 +80,42 @@ export default function LeadAIFeaturesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background p-6 max-w-7xl mx-auto">
-      <div className="mb-8">
-        <div className="flex items-center gap-2 px-3 py-1.5 bg-primary text-primary-foreground rounded-full w-fit mb-3">
-          {/* <Sparkles className="h-4 w-4" /> */}
-          <span className="text-sm font-semibold">AI Powered</span>
-        </div>
-        <h1 className="text-2xl font-bold tracking-tight text-foreground">Lead AI Features</h1>
-        <p className="text-primary mt-2">
+    <div className="space-y-6">
+      <div className="space-y-1">
+        <h1 className="text-2xl font-bold text-foreground tracking-tight">AI Features</h1>
+        <p className="text-sm text-muted-foreground">
           AI-powered tools to enhance team leadership and sprint management
         </p>
       </div>
 
       {!activeFeature ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {features.map((feature) => {
-            const Icon = feature.icon;
-            return (
-              <Card
-                key={feature.id}
-                className="p-6 cursor-pointer border border-border hover:bg-accent hover:transition-colors"
-                onClick={() => setActiveFeature(feature.id)}
-              >
-                <div className="flex flex-col">
-                  <div className="p-4 rounded-full bg-muted w-fit mb-4 shadow-md">
-                    <Icon className="h-8 w-8 text-primary" />
-                  </div>
-                  <h3 className="font-semibold text-lg mb-2 text-primary">
-                    {feature.title}
-                  </h3>
-                  <p className="text-sm text-primary mb-4 flex-grow">
-                    {feature.description}
-                  </p>
-                  <Button
-                    className="w-full hover:transition-colors"
-                    variant="default"
-                  >
-                    Open Feature
-                  </Button>
-                </div>
-              </Card>
-            );
-          })}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {features.map((feature) => (
+            <Card
+              key={feature.id}
+              className="p-5 cursor-pointer border border-border hover:bg-accent transition-colors"
+              onClick={() => setActiveFeature(feature.id)}
+            >
+              <h3 className="font-semibold text-foreground mb-1">
+                {feature.title}
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                {feature.description}
+              </p>
+            </Card>
+          ))}
         </div>
       ) : (
-        <div>
+        <div className="space-y-4">
           <Button
             onClick={() => setActiveFeature(null)}
             variant="outline"
-            className="mb-4 hover:bg-muted transition-colors"
+            className="border-border"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to Features
           </Button>
-          <Card className="p-6 border border-border hover:bg-accent hover:transition-colors">
+          <Card className="p-6 border border-border">
             {renderFeature()}
           </Card>
         </div>

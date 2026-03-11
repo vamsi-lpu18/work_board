@@ -303,9 +303,9 @@ export function ResourceOptimization() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-muted-foreground mb-1">Resource Efficiency Score</p>
-                <p className="text-4xl font-bold text-primary">{result.efficiencyScore}/100</p>
+                <p className="text-4xl font-bold text-muted-foreground">{result.efficiencyScore}/100</p>
               </div>
-              <TrendingUp className="h-12 w-12 text-primary" />
+              <TrendingUp className="h-12 w-12 text-muted-foreground" />
             </div>
           </div>
 
@@ -334,7 +334,7 @@ export function ResourceOptimization() {
           {result.conflicts.length > 0 && (
             <div>
               <h4 className="font-semibold mb-3 flex items-center gap-2 text-foreground">
-                <AlertCircle className="h-5 w-5 text-primary" />
+                <AlertCircle className="h-5 w-5 text-muted-foreground" />
                 Resource Conflicts
               </h4>
               <div className="space-y-2">
@@ -372,8 +372,8 @@ export function ResourceOptimization() {
               <h4 className="font-semibold mb-3">Hiring Recommendations</h4>
               <ul className="space-y-2">
                 {result.hiringRecommendations.map((rec, index) => (
-                  <li key={index} className="flex items-start gap-2 p-3 bg-muted/50 rounded-lg border border-primary/10">
-                    <span className="text-primary font-bold mt-0.5">•</span>
+                  <li key={index} className="flex items-start gap-2 p-3 bg-muted rounded-lg border border-primary/10">
+                    <span className="text-muted-foreground font-bold mt-0.5">•</span>
                     <span className="text-sm text-muted-foreground">{rec}</span>
                   </li>
                 ))}

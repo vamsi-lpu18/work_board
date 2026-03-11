@@ -131,17 +131,17 @@ export default function CalendarPage() {
   function getEventTypeBadge(type: string) {
     switch (type) {
       case "task":
-        return "bg-muted text-primary dark:bg-primary/20";
+        return "bg-muted text-muted-foreground dark:bg-muted";
       case "meeting":
-        return "bg-muted text-primary dark:bg-primary/20";
+        return "bg-muted text-muted-foreground dark:bg-muted";
       case "deadline":
-        return "bg-destructive/10 text-destructive dark:bg-destructive/20";
+        return "bg-muted text-foreground dark:bg-destructive/20";
       case "milestone":
-        return "bg-muted text-primary dark:bg-primary/20";
+        return "bg-muted text-muted-foreground dark:bg-muted";
       case "appraisal":
-        return "bg-muted text-primary dark:bg-primary/20";
+        return "bg-muted text-muted-foreground dark:bg-muted";
       case "pto":
-        return "bg-muted text-primary dark:bg-primary/20";
+        return "bg-muted text-muted-foreground dark:bg-muted";
       default:
         return "bg-muted text-foreground";
     }
@@ -150,13 +150,13 @@ export default function CalendarPage() {
   function getPriorityColor(priority?: string) {
     switch (priority) {
       case "high":
-        return "text-primary";
+        return "text-muted-foreground";
       case "medium":
-        return "text-primary";
+        return "text-muted-foreground";
       case "low":
-        return "text-primary";
+        return "text-muted-foreground";
       default:
-        return "text-primary";
+        return "text-muted-foreground";
     }
   }
 
@@ -194,11 +194,11 @@ export default function CalendarPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="space-y-6">
       <div className="container mx-auto p-6 space-y-6">
         <div className="flex items-center gap-3">
           <div>
-            <h1 className="text-2xl font-bold tracking-tight text-foreground">My Calendar</h1>
+            <h1 className="text-2xl font-bold text-foreground tracking-tight">My Calendar</h1>
             <p className="text-foreground mt-1">
               View your schedule and upcoming events
             </p>
@@ -207,9 +207,9 @@ export default function CalendarPage() {
 
         {/* Upcoming Events */}
         {upcomingEvents.length > 0 && (
-          <Card className="border-primary/50 bg-muted/50 ">
+          <Card className="border-foreground/50 bg-muted ">
             <CardHeader>
-              <CardTitle className="text-primary">Upcoming Events</CardTitle>
+              <CardTitle className="text-muted-foreground">Upcoming Events</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-2">
@@ -238,7 +238,7 @@ export default function CalendarPage() {
         <Card className="border-border ">
           <CardHeader>
             <div className="flex items-center justify-between">
-              <CardTitle className="text-primary">
+              <CardTitle className="text-muted-foreground">
                 {currentDate.toLocaleDateString("en-US", {
                   month: "long",
                   year: "numeric",
@@ -257,7 +257,7 @@ export default function CalendarPage() {
                   size="sm"
                   variant="outline"
                   onClick={() => setCurrentDate(new Date())}
-                  className="hover:bg-muted transition-colors text-primary"
+                  className="hover:bg-muted transition-colors text-muted-foreground"
                 >
                   Today
                 </Button>
@@ -297,18 +297,18 @@ export default function CalendarPage() {
                     key={index}
                     className={`min-h-[100px] p-2 border rounded-lg hover:bg-accent cursor-pointer transition-colors ${
                       !day
-                        ? "bg-muted/50"
+                        ? "bg-muted"
                         : isToday(day)
-                        ? "bg-muted border-primary/50 shadow-md"
+                        ? "bg-muted border-foreground/50 "
                         : "bg-card/50 hover:bg-card/80 hover:hover:-translate-y-0.5"
-                    } ${isSelected ? "ring-2 ring-primary " : ""}`}
+                    } ${isSelected ? "ring-2 ring-border " : ""}`}
                     onClick={() => day && setSelectedDate(day)}
                   >
                     {day && (
                       <>
                         <div
                           className={`text-sm font-semibold mb-1 ${
-                            isToday(day) ? "text-primary" : ""
+                            isToday(day) ? "text-muted-foreground" : ""
                           }`}
                         >
                           {day.getDate()}
@@ -319,7 +319,7 @@ export default function CalendarPage() {
                               key={event.id}
                               className={`text-xs p-1 rounded truncate ${getEventTypeColor(
                                 event.type
-                              )} text-primary-foreground`}
+                              )} text-background`}
                               title={event.title}
                             >
                               {event.title}
@@ -355,7 +355,7 @@ export default function CalendarPage() {
             </CardHeader>
             <CardContent>
               {selectedEvents.length === 0 ? (
-                <p className="text-primary text-center py-4">
+                <p className="text-muted-foreground text-center py-4">
                   No events on this day
                 </p>
               ) : (

@@ -19,14 +19,14 @@ export default async function SettingsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="space-y-6">
       <div className="flex-1 space-y-6 p-4 md:p-8 pt-6">
         {/* Header with gradient badge */}
         <div className="flex items-center gap-4">
-          <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary ">
+          <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-foreground ">
           </div>
           <div>
-            <h2 className="text-3xl font-bold tracking-tight text-primary">
+            <h2 className="text-3xl font-bold tracking-tight text-muted-foreground">
               Organization Settings
             </h2>
             <p className="text-muted-foreground mt-1">
@@ -36,7 +36,7 @@ export default async function SettingsPage() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">
-          <Card className="border border-border hover:bg-accent hover:transition-colors">
+          <Card className="border border-border hover:bg-accent transition-colors">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 Time & Location
@@ -48,26 +48,26 @@ export default async function SettingsPage() {
             <CardContent className="space-y-3">
               <div className="flex justify-between">
                 <span className="text-sm font-medium text-muted-foreground">Timezone</span>
-                <Badge variant="outline" className="border-primary text-primary">
+                <Badge variant="outline" className="border-foreground text-muted-foreground">
                   {settings.timeZone}
                 </Badge>
               </div>
               <div className="flex justify-between">
                 <span className="text-sm font-medium text-muted-foreground">Work Week</span>
-                <Badge variant="outline" className="border-primary text-primary">
+                <Badge variant="outline" className="border-foreground text-muted-foreground">
                   {settings.workWeek}
                 </Badge>
               </div>
               <div className="flex justify-between">
                 <span className="text-sm font-medium text-muted-foreground">Working Hours</span>
-                <Badge variant="outline" className="border-primary text-primary">
+                <Badge variant="outline" className="border-foreground text-muted-foreground">
                   {settings.workHoursStart} - {settings.workHoursEnd}
                 </Badge>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="border border-border hover:bg-accent hover:transition-colors">
+          <Card className="border border-border hover:bg-accent transition-colors">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <span></span>
@@ -82,21 +82,21 @@ export default async function SettingsPage() {
                 <span className="text-sm font-medium text-muted-foreground">AI Enabled</span>
                 <Badge 
                   variant={settings.aiEnabled ? "default" : "secondary"}
-                  className={settings.aiEnabled ? "bg-primary text-primary-foreground" : ""}
+                  className={settings.aiEnabled ? "bg-foreground text-background" : ""}
                 >
                   {settings.aiEnabled ? "Enabled" : "Disabled"}
                 </Badge>
               </div>
               <div className="flex justify-between">
                 <span className="text-sm font-medium text-muted-foreground">AI Threshold</span>
-                <Badge variant="outline" className="border-primary text-primary">
+                <Badge variant="outline" className="border-foreground text-muted-foreground">
                   {(settings.aiThreshold * 100).toFixed(0)}%
                 </Badge>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="border border-border hover:bg-accent hover:transition-colors">
+          <Card className="border border-border hover:bg-accent transition-colors">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <span></span>
@@ -113,7 +113,7 @@ export default async function SettingsPage() {
             </CardContent>
           </Card>
 
-          <Card className="border border-border hover:bg-accent hover:transition-colors">
+          <Card className="border border-border hover:bg-accent transition-colors">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <span></span>

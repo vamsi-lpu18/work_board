@@ -36,12 +36,12 @@ export default async function ProjectsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="space-y-6">
       <div className="flex-1 space-y-6 p-4 md:p-8 pt-6">
         {/* Header with gradient badge */}
         <div className="flex items-center gap-4">
           <div>
-            <h2 className="text-3xl font-bold tracking-tight text-primary">
+            <h2 className="text-3xl font-bold tracking-tight text-muted-foreground">
               Projects Overview
             </h2>
             <p className="text-muted-foreground mt-1">
@@ -52,58 +52,58 @@ export default async function ProjectsPage() {
 
         {/* Project Stats */}
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
-          <Card className="border border-border hover:bg-accent hover:transition-colors">
+          <Card className="border border-border hover:bg-accent transition-colors">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">
                 Total Projects
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold tracking-tight text-foreground">
+              <div className="text-lg font-semibold text-foreground">
                 {stats.total}
               </div>
             </CardContent>
           </Card>
 
-          <Card className="border border-border bg-muted hover:bg-accent hover:transition-colors">
+          <Card className="border border-border bg-muted hover:bg-accent transition-colors">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">On Track</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold tracking-tight text-foreground">
+              <div className="text-lg font-semibold text-foreground">
                 {stats.onTrack}
               </div>
             </CardContent>
           </Card>
 
-          <Card className="border border-border hover:bg-accent hover:transition-colors">
+          <Card className="border border-border hover:bg-accent transition-colors">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">At Risk</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold tracking-tight text-foreground">
+              <div className="text-lg font-semibold text-foreground">
                 {stats.atRisk}
               </div>
             </CardContent>
           </Card>
 
-          <Card className="border border-border hover:bg-accent hover:transition-colors">
+          <Card className="border border-border hover:bg-accent transition-colors">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Delayed</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold tracking-tight text-foreground">
+              <div className="text-lg font-semibold text-foreground">
                 {stats.delayed}
               </div>
             </CardContent>
           </Card>
 
-          <Card className="border border-border bg-muted hover:bg-accent hover:transition-colors">
+          <Card className="border border-border bg-muted hover:bg-accent transition-colors">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Completed</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold tracking-tight text-foreground">
+              <div className="text-lg font-semibold text-foreground">
                 {stats.completed}
               </div>
             </CardContent>
@@ -111,9 +111,9 @@ export default async function ProjectsPage() {
         </div>
 
         {/* Projects Table */}
-        <Card className="border border-border hover:bg-accent hover:transition-colors">
+        <Card className="border border-border hover:bg-accent transition-colors">
           <CardHeader>
-            <CardTitle className="text-2xl text-primary">All Projects</CardTitle>
+            <CardTitle className="text-2xl text-muted-foreground">All Projects</CardTitle>
             <CardDescription className="text-base">
               {projects.length} project{projects.length !== 1 ? "s" : ""} in the
               system
@@ -123,7 +123,7 @@ export default async function ProjectsPage() {
             <div className="rounded-lg border border-border hover:bg-accent transition-colors overflow-hidden ">
               <Table>
                 <TableHeader>
-                  <TableRow className="bg-muted hover:bg-primary/20">
+                  <TableRow className="bg-muted hover:bg-muted">
                     <TableHead className="font-semibold">Name</TableHead>
                     <TableHead className="font-semibold">Status</TableHead>
                     <TableHead className="font-semibold">Owner</TableHead>
@@ -138,7 +138,7 @@ export default async function ProjectsPage() {
                     <TableRow>
                       <TableCell
                         colSpan={7}
-                        className="text-center py-8 text-primary"
+                        className="text-center py-8 text-muted-foreground"
                       >
                         No projects found
                       </TableCell>
@@ -147,7 +147,7 @@ export default async function ProjectsPage() {
                     projects.map((project) => (
                       <TableRow
                         key={project.id}
-                        className="hover:bg-muted/50 transition-colors"
+                        className="hover:bg-muted transition-colors"
                       >
                         <TableCell className="font-medium">
                           {project.name}
@@ -181,7 +181,7 @@ export default async function ProjectsPage() {
                         <TableCell>
                           <Badge
                             variant="outline"
-                            className="font-medium text-primary"
+                            className="font-medium text-muted-foreground"
                           >
                             {Math.round(project.completionRate)}%
                           </Badge>

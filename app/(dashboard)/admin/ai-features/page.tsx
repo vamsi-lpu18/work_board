@@ -74,60 +74,46 @@ export default function AIFeaturesPage() {
   };
 
   return (
-    <div className="p-6 md:p-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Header with gradient badge */}
-        <div className="mb-8">
-          <div className="flex items-center gap-4 mb-4">
-            <div>
-              <h1 className="text-4xl font-bold text-primary">
-                AI-Powered Features
-              </h1>
-            </div>
-          </div>
-          <p className="text-muted-foreground text-lg ml-20">
-            Leverage artificial intelligence to enhance project management efficiency
-          </p>
-        </div>
+    <div className="space-y-6">
+      {/* Header */}
+      <div className="space-y-1">
+        <h1 className="text-2xl font-bold text-foreground tracking-tight">
+          AI-Powered Features
+        </h1>
+        <p className="text-sm text-muted-foreground">
+          Leverage artificial intelligence to enhance project management efficiency
+        </p>
+      </div>
 
         {!activeFeature ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature) => (
               <Card
                 key={feature.id}
-                className="p-6 cursor-pointer border border-border hover:bg-accent hover:transition-colors"
+                className="p-5 cursor-pointer border border-border hover:bg-accent transition-colors"
                 onClick={() => setActiveFeature(feature.id)}
               >
-                <div className="flex flex-col items-center text-center">
-                  <h3 className="font-semibold text-lg mb-2 text-primary">
-                    {feature.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-4">{feature.description}</p>
-                  <Button 
-                    className="mt-2 w-full bg-primary hover:bg-primary/90 text-primary-foreground" 
-                    variant="default"
-                  >
-                    Open Feature
-                  </Button>
-                </div>
+                <h3 className="font-semibold text-foreground mb-1">
+                  {feature.title}
+                </h3>
+                <p className="text-sm text-muted-foreground">{feature.description}</p>
               </Card>
             ))}
           </div>
         ) : (
-          <div>
+          <div className="space-y-4">
             <Button
               onClick={() => setActiveFeature(null)}
               variant="outline"
-              className="mb-4 border-border hover:bg-muted hover:text-foreground transition-all"
+              className="border-border"
             >
               ← Back to Features
             </Button>
-            <Card className="p-6 border border-border hover:bg-accent hover:transition-colors">
+            <Card className="p-6 border border-border">
               {renderFeature()}
             </Card>
           </div>
         )}
-      </div>
     </div>
   );
 }

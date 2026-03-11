@@ -56,7 +56,7 @@ export function AIRiskAssessment() {
       case "medium":
         return "text-muted-foreground bg-muted";
       case "low":
-        return "text-primary bg-muted";
+        return "text-muted-foreground bg-muted";
       default:
         return "text-muted-foreground bg-muted";
     }
@@ -65,7 +65,7 @@ export function AIRiskAssessment() {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-2 mb-4">
-        <HiShieldCheck className="h-6 w-6 text-primary" />
+        <HiShieldCheck className="h-6 w-6 text-muted-foreground" />
         <h3 className="text-lg font-semibold">Smart Risk Assessment</h3>
       </div>
 
@@ -213,7 +213,7 @@ export function AIRiskAssessment() {
                           <h5 className="font-medium text-foreground">
                             {suggestion.role}
                           </h5>
-                          <span className="text-sm font-semibold text-primary">
+                          <span className="text-sm font-semibold text-muted-foreground">
                             {suggestion.hours}h
                           </span>
                         </div>

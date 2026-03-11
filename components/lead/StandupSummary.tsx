@@ -106,7 +106,7 @@ export function StandupSummary() {
     <div className="space-y-6">
       <div>
         <h2 className="text-2xl font-bold mb-4">Daily Standup Summary</h2>
-        <p className="text-primary mb-6">
+        <p className="text-muted-foreground mb-6">
           Generate AI-powered summaries and insights from daily standup meetings
         </p>
       </div>
@@ -244,12 +244,12 @@ export function StandupSummary() {
           <div className="bg-muted border border-primary/30 p-6 rounded-lg">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-primary mb-1">Team Morale Score</p>
-                <p className="text-4xl font-bold text-primary">
+                <p className="text-sm text-muted-foreground mb-1">Team Morale Score</p>
+                <p className="text-4xl font-bold text-muted-foreground">
                   {result.teamMorale.score}/100
                 </p>
               </div>
-              <TrendingUp className="h-12 w-12 text-primary" />
+              <TrendingUp className="h-12 w-12 text-muted-foreground" />
             </div>
             <p className="text-sm text-foreground mt-3">
               {result.teamMorale.assessment}
@@ -300,7 +300,7 @@ export function StandupSummary() {
                         {item.severity.toUpperCase()}
                       </Badge>
                     </div>
-                    <p className="text-sm text-primary">
+                    <p className="text-sm text-muted-foreground">
                       <span className="font-medium">Suggestion:</span>{" "}
                       {item.suggestion}
                     </p>
@@ -319,7 +319,7 @@ export function StandupSummary() {
                   key={index}
                   className="flex items-start gap-2 p-3 bg-muted rounded-lg"
                 >
-                  <span className="text-primary font-bold mt-0.5">
+                  <span className="text-muted-foreground font-bold mt-0.5">
                     {index + 1}.
                   </span>
                   <span className="text-sm text-foreground">{item}</span>

@@ -214,13 +214,13 @@ export default function MyWorkPage() {
   const getPriorityBadge = (priority: string) => {
     const priorityConfig: Record<string, { label: string; className: string }> =
       {
-        LOW: { label: "Low", className: "bg-muted text-primary" },
-        MEDIUM: { label: "Medium", className: "bg-muted text-primary" },
-        HIGH: { label: "High", className: "bg-muted text-primary" },
+        LOW: { label: "Low", className: "bg-muted text-muted-foreground" },
+        MEDIUM: { label: "Medium", className: "bg-muted text-muted-foreground" },
+        HIGH: { label: "High", className: "bg-muted text-muted-foreground" },
         URGENT: {
           label: "Urgent",
           className:
-            "bg-destructive/20 text-destructive dark:bg-destructive/30",
+            "bg-destructive/20 text-foreground dark:bg-destructive/30",
         },
       };
     return priorityConfig[priority] || priorityConfig["MEDIUM"];
@@ -249,28 +249,23 @@ export default function MyWorkPage() {
   });
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="p-6 max-w-8xl mx-auto space-y-6">
-        {/* Header */}
-        <div className="flex items-center justify-between">
-          <div>
-            <div className="flex items-center gap-3 mb-3">
-              <div>
-                <h1 className="text-2xl font-bold tracking-tight text-foreground">My Tasks</h1>
-                <p className="text-foreground">
-                  Manage your assigned tasks and track progress
-                </p>
-              </div>
-            </div>
-          </div>
-          <Button
-            onClick={() => setCreateTaskDialog(true)}
-            className="bg-primary hover:bg-primary/90 hover:transition-colors"
-          >
-            <HiPlus className="h-4 w-4 mr-2" />
-            Create Task
-          </Button>
+    <div className="space-y-6">
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <div className="space-y-1">
+          <h1 className="text-2xl font-bold text-foreground tracking-tight">My Tasks</h1>
+          <p className="text-sm text-muted-foreground">
+            Manage your assigned tasks and track progress
+          </p>
         </div>
+        <Button
+          onClick={() => setCreateTaskDialog(true)}
+          className="bg-foreground hover:bg-foreground/90 text-background"
+        >
+          <HiPlus className="h-4 w-4 mr-2" />
+          Create Task
+        </Button>
+      </div>
 
         {/* Filters */}
         <div className="flex items-center gap-4">
@@ -293,7 +288,7 @@ export default function MyWorkPage() {
                 onClick={() => setFilter(f)}
                 className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors border-2 ${
                   filter === f
-                    ? "bg-primary text-primary-foreground border-primary"
+                    ? "bg-foreground text-background border-foreground"
                     : "text-muted-foreground hover:text-foreground border-border hover:bg-accent"
                 }`}
               >
@@ -305,44 +300,44 @@ export default function MyWorkPage() {
 
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <Card className="rounded-lg border border-border hover:bg-accent hover:transition-colors p-4">
+          <Card className="rounded-lg border border-border hover:bg-accent transition-colors p-4">
             <div className="flex items-center gap-3">
               <div>
-                <p className="text-sm text-primary font-medium">In Progress</p>
-                <p className="text-2xl font-bold tracking-tight text-foreground">
+                <p className="text-sm text-muted-foreground font-medium">In Progress</p>
+                <p className="text-lg font-semibold text-foreground">
                   {stats?.inProgress || 0}
                 </p>
               </div>
             </div>
           </Card>
 
-          <Card className="rounded-lg border border-border hover:bg-accent hover:transition-colors p-4">
+          <Card className="rounded-lg border border-border hover:bg-accent transition-colors p-4">
             <div className="flex items-center gap-3">
               <div>
-                <p className="text-sm text-primary font-medium">Total Tasks</p>
-                <p className="text-2xl font-bold tracking-tight text-foreground">
+                <p className="text-sm text-muted-foreground font-medium">Total Tasks</p>
+                <p className="text-lg font-semibold text-foreground">
                   {stats?.total || 0}
                 </p>
               </div>
             </div>
           </Card>
 
-          <Card className="rounded-lg border border-border hover:bg-accent hover:transition-colors p-4">
+          <Card className="rounded-lg border border-border hover:bg-accent transition-colors p-4">
             <div className="flex items-center gap-3">
               <div>
-                <p className="text-sm text-primary font-medium">Overdue</p>
-                <p className="text-2xl font-bold tracking-tight text-foreground">
+                <p className="text-sm text-muted-foreground font-medium">Overdue</p>
+                <p className="text-lg font-semibold text-foreground">
                   {stats?.overdue || 0}
                 </p>
               </div>
             </div>
           </Card>
 
-          <Card className="rounded-lg border border-border hover:bg-accent hover:transition-colors p-4">
+          <Card className="rounded-lg border border-border hover:bg-accent transition-colors p-4">
             <div className="flex items-center gap-3">
               <div>
-                <p className="text-sm text-primary font-medium">Completed</p>
-                <p className="text-2xl font-bold tracking-tight text-foreground">
+                <p className="text-sm text-muted-foreground font-medium">Completed</p>
+                <p className="text-lg font-semibold text-foreground">
                   {stats?.completed || 0}
                 </p>
               </div>
@@ -355,7 +350,7 @@ export default function MyWorkPage() {
           {loading ? (
             <div className="flex items-center justify-center py-12"></div>
           ) : filteredTasks.length === 0 ? (
-            <div className="text-center py-12 text-primary">
+            <div className="text-center py-12 text-muted-foreground">
               <p className="text-lg font-medium">No tasks found</p>
               <p className="text-sm">
                 Try adjusting your filters or search query
@@ -378,7 +373,7 @@ export default function MyWorkPage() {
                           </Badge>
                         )}
                       </div>
-                      <p className="text-sm text-primary mb-2">
+                      <p className="text-sm text-muted-foreground mb-2">
                         {task.project?.name || "No project"}
                       </p>
                       {task.description && (
@@ -386,7 +381,7 @@ export default function MyWorkPage() {
                           {task.description}
                         </p>
                       )}
-                      <div className="flex items-center gap-4 text-sm text-primary">
+                      <div className="flex items-center gap-4 text-sm text-muted-foreground">
                         <span>Due: {formatDate(task.dueDate)}</span>
                         <span>
                           Time: {task.actualHours || 0}h /{" "}
@@ -666,7 +661,6 @@ export default function MyWorkPage() {
             </Card>
           </div>
         )}
-      </div>
     </div>
   );
 }

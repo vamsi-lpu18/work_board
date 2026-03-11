@@ -273,7 +273,7 @@ export function ReportGeneration() {
                   key={index}
                   className="flex items-start gap-2 p-3 bg-muted rounded-lg border border-primary/20"
                 >
-                  <span className="text-primary font-bold mt-0.5">
+                  <span className="text-muted-foreground font-bold mt-0.5">
                     {index + 1}.
                   </span>
                   <span className="text-sm text-foreground">{rec}</span>

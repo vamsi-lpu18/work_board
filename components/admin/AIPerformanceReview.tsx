@@ -168,7 +168,7 @@ export function AIPerformanceReview() {
               <ul className="space-y-1">
                 {result.strengths?.map((strength: string, idx: number) => (
                   <li key={idx} className="text-sm flex items-start gap-2">
-                    <span className="text-primary mt-1">✓</span>
+                    <span className="text-muted-foreground mt-1">✓</span>
                     <span>{strength}</span>
                   </li>
                 ))}
@@ -183,7 +183,7 @@ export function AIPerformanceReview() {
                 {result.areasForImprovement?.map(
                   (area: string, idx: number) => (
                     <li key={idx} className="text-sm flex items-start gap-2">
-                      <span className="text-primary mt-1">→</span>
+                      <span className="text-muted-foreground mt-1">→</span>
                       <span>{area}</span>
                     </li>
                   )
@@ -198,7 +198,7 @@ export function AIPerformanceReview() {
               {result.accomplishments?.map(
                 (accomplishment: string, idx: number) => (
                   <li key={idx} className="text-sm flex items-start gap-2">
-                    <span className="text-primary mt-1">★</span>
+                    <span className="text-muted-foreground mt-1">★</span>
                     <span>{accomplishment}</span>
                   </li>
                 )
@@ -212,7 +212,7 @@ export function AIPerformanceReview() {
               {result.recommendations?.map(
                 (recommendation: string, idx: number) => (
                   <li key={idx} className="text-sm flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
+                    <span className="text-muted-foreground mt-1">•</span>
                     <span>{recommendation}</span>
                   </li>
                 )

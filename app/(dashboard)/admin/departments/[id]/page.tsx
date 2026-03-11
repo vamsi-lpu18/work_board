@@ -51,7 +51,7 @@ export default async function DepartmentDetailPage({
             </Button>
           </Link>
           <div>
-            <h2 className="text-3xl font-bold tracking-tight text-primary">
+            <h2 className="text-3xl font-bold tracking-tight text-muted-foreground">
               {department.name}
             </h2>
             <p className="text-muted-foreground">
@@ -73,7 +73,7 @@ export default async function DepartmentDetailPage({
             <CardTitle className="text-sm font-medium">Total Users</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold tracking-tight text-foreground">{department.users.length}</div>
+            <div className="text-lg font-semibold text-foreground">{department.users.length}</div>
             <p className="text-xs text-muted-foreground">
               {department.users.length === 1 ? "member" : "members"}
             </p>
@@ -85,7 +85,7 @@ export default async function DepartmentDetailPage({
             <CardTitle className="text-sm font-medium">Teams</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold tracking-tight text-foreground">{department.teams.length}</div>
+            <div className="text-lg font-semibold text-foreground">{department.teams.length}</div>
             <p className="text-xs text-muted-foreground">
               {department.teams.length === 1 ? "team" : "teams"}
             </p>
@@ -97,7 +97,7 @@ export default async function DepartmentDetailPage({
             <CardTitle className="text-sm font-medium">Managers</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold tracking-tight text-foreground">
+            <div className="text-lg font-semibold text-foreground">
               {department.users.filter((u: any) => u.role === "MANAGER").length}
             </div>
             <p className="text-xs text-muted-foreground">active managers</p>
@@ -125,7 +125,7 @@ export default async function DepartmentDetailPage({
         <TabsContent value="teams" className="space-y-4">
           <Card className="border border-border hover:bg-accent hover:shadow-xl transition-colors">
             <CardHeader>
-              <CardTitle className="text-primary">Teams in {department.name}</CardTitle>
+              <CardTitle className="text-muted-foreground">Teams in {department.name}</CardTitle>
               <CardDescription>
                 All teams within this department
               </CardDescription>
@@ -164,7 +164,7 @@ export default async function DepartmentDetailPage({
                   ))}
                 </div>
               ) : (
-                <p className="text-center text-primary py-8">
+                <p className="text-center text-muted-foreground py-8">
                   No teams in this department
                 </p>
               )}
@@ -175,7 +175,7 @@ export default async function DepartmentDetailPage({
         <TabsContent value="members">
           <Card className="border border-border hover:bg-accent hover:shadow-xl transition-colors">
             <CardHeader>
-              <CardTitle className="text-primary">Department Members</CardTitle>
+              <CardTitle className="text-muted-foreground">Department Members</CardTitle>
               <CardDescription>
                 All users assigned to {department.name}
               </CardDescription>
@@ -237,7 +237,7 @@ export default async function DepartmentDetailPage({
                   </TableBody>
                 </Table>
               ) : (
-                <p className="text-center text-primary py-8">
+                <p className="text-center text-muted-foreground py-8">
                   No members in this department
                 </p>
               )}

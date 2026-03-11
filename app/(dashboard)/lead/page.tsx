@@ -46,7 +46,7 @@ export default async function LeadOverviewPage() {
   if (!user?.team) {
     return (
       <div className="flex items-center justify-center p-12">
-        <Card className="max-w-md w-full border-border/50">
+        <Card className="max-w-md w-full border-border">
           <CardContent className="pt-10 pb-10 text-center">
             <h2 className="text-xl font-bold text-foreground mb-2">
               No Team Assigned
@@ -95,7 +95,7 @@ export default async function LeadOverviewPage() {
 
       {/* Quick Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
-        <Card className="border-border/50 hover:border-primary/30 transition-colors">
+        <Card className="border-border hover:bg-accent transition-colors">
           <CardContent className="pt-5 pb-4">
             <p className="text-xs font-medium text-muted-foreground mb-1">To Do</p>
             <p className="text-2xl font-bold text-foreground">
@@ -104,16 +104,16 @@ export default async function LeadOverviewPage() {
           </CardContent>
         </Card>
 
-        <Card className="border-border/50 hover:border-primary/30 transition-colors">
+        <Card className="border-border hover:bg-accent transition-colors">
           <CardContent className="pt-5 pb-4">
             <p className="text-xs font-medium text-muted-foreground mb-1">In Progress</p>
-            <p className="text-2xl font-bold tracking-tight text-foreground">
+            <p className="text-lg font-semibold text-foreground">
               {tasksByStatus.inProgress}
             </p>
           </CardContent>
         </Card>
 
-        <Card className="border-border/50 hover:border-primary/30 transition-colors">
+        <Card className="border-border hover:bg-accent transition-colors">
           <CardContent className="pt-5 pb-4">
             <p className="text-xs font-medium text-muted-foreground mb-1">In Review</p>
             <p className="text-2xl font-bold text-foreground">
@@ -122,19 +122,19 @@ export default async function LeadOverviewPage() {
           </CardContent>
         </Card>
 
-        <Card className="border-border/50 hover:border-green-500/30 transition-colors">
+        <Card className="border-border hover:bg-accent transition-colors">
           <CardContent className="pt-5 pb-4">
             <p className="text-xs font-medium text-muted-foreground mb-1">Done</p>
-            <p className="text-2xl font-bold text-green-500">
+            <p className="text-2xl font-bold text-foreground">
               {tasksByStatus.done}
             </p>
           </CardContent>
         </Card>
 
-        <Card className="border-border/50 hover:border-destructive/30 transition-colors">
+        <Card className="border-border hover:bg-accent transition-colors">
           <CardContent className="pt-5 pb-4">
             <p className="text-xs font-medium text-muted-foreground mb-1">Blocked</p>
-            <p className="text-2xl font-bold text-destructive">
+            <p className="text-2xl font-bold text-foreground">
               {tasksByStatus.blocked}
             </p>
           </CardContent>
@@ -143,7 +143,7 @@ export default async function LeadOverviewPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Current Sprint */}
-        <Card className="border-border/50">
+        <Card className="border-border">
           <CardHeader className="pb-3">
             <CardTitle className="text-lg font-semibold text-foreground">
               Current Sprint
@@ -165,12 +165,12 @@ export default async function LeadOverviewPage() {
                     </div>
                     <Link
                       href="/lead/sprints"
-                      className="text-sm font-medium text-primary hover:text-foreground/80 transition-colors"
+                      className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                     >
                       Details
                     </Link>
                   </div>
-                  <div className="space-y-3 p-4 rounded-lg bg-muted/50">
+                  <div className="space-y-3 p-4 rounded-lg bg-muted">
                     <div>
                       <div className="flex justify-between text-sm mb-2">
                         <span className="text-muted-foreground font-medium">Progress</span>
@@ -180,20 +180,20 @@ export default async function LeadOverviewPage() {
                       </div>
                       <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
                         <div
-                          className="bg-primary h-2 rounded-full transition-colors"
+                          className="bg-foreground h-2 rounded-full transition-colors"
                           style={{ width: `${currentSprint.progress}%` }}
                         />
                       </div>
                     </div>
                     <div className="grid grid-cols-2 gap-3">
-                      <div className="p-3 rounded-lg bg-background border border-border/50">
+                      <div className="p-3 rounded-lg bg-background border border-border">
                         <p className="text-xs text-muted-foreground mb-1">Tasks</p>
                         <p className="text-lg font-bold text-foreground">
                           {currentSprint.completedTasks}
                           <span className="text-sm text-muted-foreground">/{currentSprint.totalTasks}</span>
                         </p>
                       </div>
-                      <div className="p-3 rounded-lg bg-background border border-border/50">
+                      <div className="p-3 rounded-lg bg-background border border-border">
                         <p className="text-xs text-muted-foreground mb-1">Points</p>
                         <p className="text-lg font-bold text-foreground">
                           {currentSprint.completedPoints}
@@ -211,7 +211,7 @@ export default async function LeadOverviewPage() {
                   <p className="text-muted-foreground mb-4">No active sprint</p>
                   <Link
                     href="/lead/sprints"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-colors"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-foreground text-background font-medium rounded-lg hover:bg-foreground/90 transition-colors"
                   >
                     Plan Sprint
                   </Link>
@@ -221,7 +221,7 @@ export default async function LeadOverviewPage() {
           </Card>
 
           {/* Sprint Velocity */}
-          <Card className="border-border/50">
+          <Card className="border-border">
             <CardHeader>
               <CardTitle className="text-lg font-semibold text-foreground">
                 Sprint Velocity
@@ -230,7 +230,7 @@ export default async function LeadOverviewPage() {
             <CardContent>
               {velocityData.velocities.length > 0 ? (
                 <div className="space-y-4">
-                  <div className="p-4 rounded-lg bg-muted/50">
+                  <div className="p-4 rounded-lg bg-muted">
                     <p className="text-sm text-muted-foreground font-medium mb-1">
                       Average Velocity
                     </p>
@@ -245,7 +245,7 @@ export default async function LeadOverviewPage() {
                     {velocityData.velocities.slice(0, 3).map((v, idx) => (
                       <div
                         key={v.sprintId}
-                        className="flex justify-between items-center p-3 rounded-lg hover:bg-muted/50 transition-colors"
+                        className="flex justify-between items-center p-3 rounded-lg hover:bg-muted transition-colors"
                       >
                         <span className="text-sm font-medium text-foreground">
                           {v.sprintName}
@@ -276,7 +276,7 @@ export default async function LeadOverviewPage() {
                 </CardTitle>
                 <Link
                   href="/lead/team-board?filter=blocked"
-                  className="text-sm font-medium text-primary hover:text-foreground/80 transition-colors"
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                 >
                   View All
                 </Link>
@@ -287,7 +287,7 @@ export default async function LeadOverviewPage() {
                 {blockedTasks.slice(0, 5).map((task) => (
                   <div
                     key={task.id}
-                    className="p-3 rounded-lg border border-border/50 hover:bg-muted/50 transition-colors"
+                    className="p-3 rounded-lg border border-border hover:bg-muted transition-colors"
                   >
                     <h4 className="font-medium text-foreground mb-1">
                       {task.title}
@@ -310,7 +310,7 @@ export default async function LeadOverviewPage() {
         )}
 
         {/* Team Workload */}
-        <Card className="border-border/50">
+        <Card className="border-border">
           <CardHeader>
             <div className="flex items-center justify-between">
               <CardTitle className="text-lg font-semibold text-foreground">
@@ -318,7 +318,7 @@ export default async function LeadOverviewPage() {
               </CardTitle>
               <Link
                 href="/lead/team-board"
-                className="text-sm font-medium text-primary hover:text-foreground/80 transition-colors"
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 Manage
               </Link>
@@ -329,7 +329,7 @@ export default async function LeadOverviewPage() {
               {workload.slice(0, 5).map((member) => (
                 <div
                   key={member.userId}
-                  className="p-3 rounded-lg hover:bg-muted/50 transition-colors"
+                  className="p-3 rounded-lg hover:bg-muted transition-colors"
                 >
                   <div className="flex items-center justify-between mb-2">
                     <span className="font-medium text-foreground">
@@ -347,7 +347,7 @@ export default async function LeadOverviewPage() {
                   <div className="flex items-center gap-3">
                     <div className="flex-1 bg-muted rounded-full h-2 overflow-hidden">
                       <div
-                        className="bg-primary h-2 rounded-full transition-all"
+                        className="bg-foreground h-2 rounded-full transition-all"
                         style={{
                           width: `${Math.min(
                             100,
@@ -359,7 +359,7 @@ export default async function LeadOverviewPage() {
                       />
                     </div>
                     {member.blocked > 0 && (
-                      <span className="text-xs text-destructive font-medium whitespace-nowrap">
+                      <span className="text-xs text-foreground font-medium whitespace-nowrap">
                         {member.blocked} blocked
                       </span>
                     )}
@@ -377,11 +377,11 @@ export default async function LeadOverviewPage() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <Link href="/lead/team-board?action=create-task">
-              <Card className="group border-border/50 hover:border-primary/30 transition-colors cursor-pointer">
+              <Card className="group border-border hover:bg-accent transition-colors cursor-pointer">
                 <CardContent className="p-5">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="p-2 rounded-lg bg-muted">
-                      <HiPlus className="h-5 w-5 text-primary" />
+                      <HiPlus className="h-5 w-5 text-muted-foreground" />
                     </div>
                     <h3 className="font-semibold text-foreground group-hover:text-foreground transition-colors">
                       Create Task
@@ -395,11 +395,11 @@ export default async function LeadOverviewPage() {
             </Link>
 
             <Link href="/lead/sprints?action=create-sprint">
-              <Card className="group border-border/50 hover:border-primary/30 transition-colors cursor-pointer">
+              <Card className="group border-border hover:bg-accent transition-colors cursor-pointer">
                 <CardContent className="p-5">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="p-2 rounded-lg bg-muted">
-                      <HiRocketLaunch className="h-5 w-5 text-primary" />
+                      <HiRocketLaunch className="h-5 w-5 text-muted-foreground" />
                     </div>
                     <h3 className="font-semibold text-foreground group-hover:text-foreground transition-colors">
                       Plan Sprint
@@ -413,11 +413,11 @@ export default async function LeadOverviewPage() {
             </Link>
 
             <Link href="/lead/metrics">
-              <Card className="group border-border/50 hover:border-primary/30 transition-colors cursor-pointer">
+              <Card className="group border-border hover:bg-accent transition-colors cursor-pointer">
                 <CardContent className="p-5">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="p-2 rounded-lg bg-muted">
-                      <HiChartBar className="h-5 w-5 text-primary" />
+                      <HiChartBar className="h-5 w-5 text-muted-foreground" />
                     </div>
                     <h3 className="font-semibold text-foreground group-hover:text-foreground transition-colors">
                       View Metrics

@@ -36,7 +36,7 @@ export default async function AdminDashboardPage() {
 
       {/* Overview Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card className="border-border/50 hover:border-primary/30 transition-colors">
+        <Card className="border-border hover:bg-accent transition-colors">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">
               Total Users
@@ -50,7 +50,7 @@ export default async function AdminDashboardPage() {
           </CardContent>
         </Card>
 
-        <Card className="border-border/50 hover:border-primary/30 transition-colors">
+        <Card className="border-border hover:bg-accent transition-colors">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">
               Departments
@@ -64,7 +64,7 @@ export default async function AdminDashboardPage() {
           </CardContent>
         </Card>
 
-        <Card className="border-border/50 hover:border-primary/30 transition-colors">
+        <Card className="border-border hover:bg-accent transition-colors">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">
               Active Projects
@@ -78,7 +78,7 @@ export default async function AdminDashboardPage() {
           </CardContent>
         </Card>
 
-        <Card className="border-border/50 hover:border-primary/30 transition-colors">
+        <Card className="border-border hover:bg-accent transition-colors">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">
               Completion Rate
@@ -100,7 +100,7 @@ export default async function AdminDashboardPage() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <Link href="/admin/users">
-            <Card className="group border-border/50 hover:border-primary/30 transition-colors cursor-pointer h-full">
+            <Card className="group border-border hover:bg-accent transition-colors cursor-pointer h-full">
               <CardContent className="p-5">
                 <h3 className="text-sm font-semibold text-foreground mb-1 group-hover:text-foreground transition-colors">
                   User Management
@@ -113,7 +113,7 @@ export default async function AdminDashboardPage() {
           </Link>
 
           <Link href="/admin/departments">
-            <Card className="group border-border/50 hover:border-primary/30 transition-colors cursor-pointer h-full">
+            <Card className="group border-border hover:bg-accent transition-colors cursor-pointer h-full">
               <CardContent className="p-5">
                 <h3 className="text-sm font-semibold text-foreground mb-1 group-hover:text-foreground transition-colors">
                   Organization
@@ -126,7 +126,7 @@ export default async function AdminDashboardPage() {
           </Link>
 
           <Link href="/admin/projects">
-            <Card className="group border-border/50 hover:border-primary/30 transition-colors cursor-pointer h-full">
+            <Card className="group border-border hover:bg-accent transition-colors cursor-pointer h-full">
               <CardContent className="p-5">
                 <h3 className="text-sm font-semibold text-foreground mb-1 group-hover:text-foreground transition-colors">
                   Projects
@@ -139,7 +139,7 @@ export default async function AdminDashboardPage() {
           </Link>
 
           <Link href="/admin/analytics">
-            <Card className="group border-border/50 hover:border-primary/30 transition-colors cursor-pointer h-full">
+            <Card className="group border-border hover:bg-accent transition-colors cursor-pointer h-full">
               <CardContent className="p-5">
                 <h3 className="text-sm font-semibold text-foreground mb-1 group-hover:text-foreground transition-colors">
                   Performance
@@ -152,7 +152,7 @@ export default async function AdminDashboardPage() {
           </Link>
 
           <Link href="/admin/audit">
-            <Card className="group border-border/50 hover:border-primary/30 transition-colors cursor-pointer h-full">
+            <Card className="group border-border hover:bg-accent transition-colors cursor-pointer h-full">
               <CardContent className="p-5">
                 <h3 className="text-sm font-semibold text-foreground mb-1 group-hover:text-foreground transition-colors">
                   Security & Audit
@@ -165,7 +165,7 @@ export default async function AdminDashboardPage() {
           </Link>
 
           <Link href="/admin/settings">
-            <Card className="group border-border/50 hover:border-primary/30 transition-colors cursor-pointer h-full">
+            <Card className="group border-border hover:bg-accent transition-colors cursor-pointer h-full">
               <CardContent className="p-5">
                 <h3 className="text-sm font-semibold text-foreground mb-1 group-hover:text-foreground transition-colors">
                   Integrations & Settings

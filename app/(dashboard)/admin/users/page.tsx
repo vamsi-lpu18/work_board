@@ -36,13 +36,13 @@ export default async function UsersPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="space-y-6">
       <div className="flex-1 space-y-6 p-4 md:p-8 pt-6">
         {/* Header with gradient badge */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight text-primary">
+              <h2 className="text-3xl font-bold tracking-tight text-muted-foreground">
                 User Management
               </h2>
               <p className="text-muted-foreground mt-1">
@@ -51,16 +51,16 @@ export default async function UsersPage() {
             </div>
           </div>
           <Link href="/admin/users/create">
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground hover:transition-colors">
+            <Button className="bg-foreground hover:bg-foreground/90 text-background hover:transition-colors">
               Add User
             </Button>
           </Link>
         </div>
 
         {/* Main Card with Glassmorphism */}
-        <Card className="border border-border hover:bg-accent hover:transition-colors">
+        <Card className="border border-border hover:bg-accent transition-colors">
           <CardHeader>
-            <CardTitle className="text-2xl text-primary">All Users</CardTitle>
+            <CardTitle className="text-2xl text-muted-foreground">All Users</CardTitle>
             <CardDescription className="text-base">
               {users.length} user{users.length !== 1 ? "s" : ""} in the system
             </CardDescription>
@@ -70,7 +70,7 @@ export default async function UsersPage() {
               <div className="relative">
                 <Input
                   placeholder="Search users..."
-                  className="border-border focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                  className="border-border focus:ring-2 focus:ring-border/20 focus:border-foreground transition-all"
                 />
               </div>
             </div>
@@ -78,7 +78,7 @@ export default async function UsersPage() {
             <div className="rounded-lg border border-border hover:bg-accent transition-colors overflow-hidden ">
               <Table>
                 <TableHeader>
-                  <TableRow className="bg-muted hover:bg-primary/20">
+                  <TableRow className="bg-muted hover:bg-muted">
                     <TableHead className="font-semibold">Name</TableHead>
                     <TableHead className="font-semibold">Email</TableHead>
                     <TableHead className="font-semibold">Role</TableHead>
@@ -94,7 +94,7 @@ export default async function UsersPage() {
                     <TableRow>
                       <TableCell
                         colSpan={8}
-                        className="text-center py-8 text-primary"
+                        className="text-center py-8 text-muted-foreground"
                       >
                         No users found
                       </TableCell>
@@ -103,7 +103,7 @@ export default async function UsersPage() {
                     users.map((user) => (
                       <TableRow
                         key={user.id}
-                        className="hover:bg-muted/50 transition-colors"
+                        className="hover:bg-muted transition-colors"
                       >
                         <TableCell className="font-medium">
                           {user.firstName} {user.lastName}
@@ -118,7 +118,7 @@ export default async function UsersPage() {
                             }
                             className={
                               user.role === "ADMIN"
-                                ? "bg-primary text-primary-foreground"
+                                ? "bg-foreground text-background"
                                 : ""
                             }
                           >
@@ -141,7 +141,7 @@ export default async function UsersPage() {
                                 : "destructive"
                             }
                             className={
-                              user.status === "ACTIVE" ? "bg-primary" : ""
+                              user.status === "ACTIVE" ? "bg-foreground" : ""
                             }
                           >
                             {user.status}
@@ -157,7 +157,7 @@ export default async function UsersPage() {
                             <Button
                               variant="ghost"
                               size="sm"
-                              className="hover:bg-muted/50 hover:text-foreground transition-all"
+                              className="hover:bg-muted hover:text-foreground transition-all"
                             >
                               View
                             </Button>

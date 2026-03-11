@@ -11,15 +11,15 @@ export default async function ManagerTimesheetsPage() {
   const timesheets = await getPendingTimesheets(session.user.id);
 
   return (
-    <div className="min-h-screen bg-background p-6">
+    <div className="space-y-6">
       <div className="mx-auto max-w-7xl space-y-6">
         {/* Header */}
         <div className="flex items-center gap-4">
           <div>
-            <h1 className="text-2xl font-bold tracking-tight text-foreground">
+            <h1 className="text-2xl font-bold text-foreground tracking-tight">
               Timesheets
             </h1>
-            <p className="mt-1 text-primary">
+            <p className="mt-1 text-muted-foreground">
               Review and approve timesheets from your team
             </p>
           </div>
@@ -37,7 +37,7 @@ export default async function ManagerTimesheetsPage() {
               <TimesheetApprovalCard key={timesheet.id} timesheet={timesheet} />
             ))}
             {timesheets.length === 0 && (
-              <div className="px-6 py-12 text-center text-primary">
+              <div className="px-6 py-12 text-center text-muted-foreground">
                 No pending timesheets to review
               </div>
             )}

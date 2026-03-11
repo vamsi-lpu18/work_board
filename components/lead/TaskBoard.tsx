@@ -132,7 +132,7 @@ export function TaskBoard({
             <div className="flex items-end">
               <button
                 onClick={() => setFilter({})}
-                className="px-3 py-2 text-sm text-primary hover:text-foreground transition-colors"
+                className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 Clear Filters
               </button>
@@ -154,7 +154,7 @@ export function TaskBoard({
                 <h3 className="font-semibold text-foreground">
                   {column.label}
                 </h3>
-                <span className="text-sm font-medium text-primary bg-muted px-2 py-1 rounded">
+                <span className="text-sm font-medium text-muted-foreground bg-muted px-2 py-1 rounded">
                   {columnTasks.length}
                 </span>
               </div>
@@ -165,9 +165,9 @@ export function TaskBoard({
                     (m) => m.id === task.assigneeId
                   );
                   const priorityColors = {
-                    LOW: "bg-muted/50 text-primary",
-                    MEDIUM: "bg-muted text-primary",
-                    HIGH: "bg-primary/20 text-primary",
+                    LOW: "bg-muted text-muted-foreground",
+                    MEDIUM: "bg-muted text-muted-foreground",
+                    HIGH: "bg-primary/20 text-muted-foreground",
                     URGENT: "bg-destructive/10 text-destructive",
                   };
 
@@ -192,12 +192,12 @@ export function TaskBoard({
                       </div>
 
                       {task.description && (
-                        <p className="text-xs text-primary mb-2 line-clamp-2">
+                        <p className="text-xs text-muted-foreground mb-2 line-clamp-2">
                           {task.description}
                         </p>
                       )}
 
-                      <div className="flex items-center justify-between text-xs text-primary">
+                      <div className="flex items-center justify-between text-xs text-muted-foreground">
                         <div className="flex items-center gap-2">
                           {task.storyPoints && (
                             <span className="font-medium">
@@ -220,7 +220,7 @@ export function TaskBoard({
                                 className="w-5 h-5 rounded-full"
                               />
                             ) : (
-                              <div className="w-5 h-5 rounded-full bg-muted text-primary flex items-center justify-center text-xs font-semibold">
+                              <div className="w-5 h-5 rounded-full bg-muted text-muted-foreground flex items-center justify-center text-xs font-semibold">
                                 {assignee.name?.charAt(0)}
                               </div>
                             )}
