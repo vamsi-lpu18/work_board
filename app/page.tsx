@@ -112,14 +112,7 @@ export default async function Home() {
                 </div>
 
                 {/* Social proof */}
-                <div className="pt-10 flex flex-col items-center gap-3">
-                  <div className="flex -space-x-2">
-                    {[1,2,3,4,5].map((i) => (
-                      <div key={i} className="h-8 w-8 rounded-full bg-muted border-2 border-background flex items-center justify-center">
-                        <span className="text-[10px] font-bold text-muted-foreground">{String.fromCharCode(64 + i)}</span>
-                      </div>
-                    ))}
-                  </div>
+
                   <p className="text-sm text-muted-foreground">
                     Trusted by <span className="font-semibold text-foreground">50+</span> teams worldwide
                   </p>
